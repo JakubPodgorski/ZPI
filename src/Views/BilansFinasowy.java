@@ -7,6 +7,7 @@ import javax.swing.JTable;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JComboBox;
+import javax.swing.SwingConstants;
 
 public class BilansFinasowy extends JPanel {
 	private JTable table;
@@ -18,7 +19,7 @@ public class BilansFinasowy extends JPanel {
 		setLayout(null);
 		
 		table = new JTable();
-		table.setBounds(10, 10, 837, 287);
+		table.setBounds(10, 38, 837, 259);
 		add(table);
 		
 		JLabel label = new JLabel("New label");
@@ -52,6 +53,15 @@ public class BilansFinasowy extends JPanel {
 		JLabel label_3 = new JLabel("Od:");
 		label_3.setBounds(117, 322, 29, 14);
 		add(label_3);
+		
+		JLabel lblOferta = new JLabel("Oferta:");
+		lblOferta.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblOferta.setBounds(0, 13, 57, 14);
+		add(lblOferta);
+		
+		JComboBox comboBox_2 = new JComboBox();
+		comboBox_2.setBounds(67, 10, 160, 20);
+		add(comboBox_2);
 
 	}
 }

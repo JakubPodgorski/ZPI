@@ -12,6 +12,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Rejestracja extends JFrame {
 
@@ -70,32 +72,32 @@ public class Rejestracja extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("Login:");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel.setBounds(10, 29, 113, 14);
+		lblNewLabel.setBounds(16, 27, 93, 14);
 		panel.add(lblNewLabel);
 		
 		textField = new JTextField();
-		textField.setBounds(133, 26, 119, 20);
+		textField.setBounds(119, 24, 145, 20);
 		panel.add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(133, 57, 119, 20);
+		textField_1.setBounds(119, 55, 145, 20);
 		panel.add(textField_1);
 		textField_1.setColumns(10);
 		
 		textField_2 = new JTextField();
-		textField_2.setBounds(133, 88, 119, 20);
+		textField_2.setBounds(119, 86, 145, 20);
 		panel.add(textField_2);
 		textField_2.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("Has\u0142o:");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_1.setBounds(10, 60, 113, 14);
+		lblNewLabel_1.setBounds(26, 58, 83, 14);
 		panel.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Powt\u00F3z has\u0142o:");
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_2.setBounds(10, 91, 113, 14);
+		lblNewLabel_2.setBounds(10, 89, 99, 14);
 		panel.add(lblNewLabel_2);
 		
 		JPanel panel_1 = new JPanel();
@@ -105,7 +107,7 @@ public class Rejestracja extends JFrame {
 		panel_1.setLayout(null);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(137, 26, 112, 20);
+		comboBox.setBounds(120, 26, 140, 20);
 		panel_1.add(comboBox);
 		
 		comboBox.addItem("Zarz¹dca");
@@ -113,7 +115,7 @@ public class Rejestracja extends JFrame {
 		
 		JLabel lblNewLabel_3 = new JLabel("Stanowisko:");
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_3.setBounds(10, 29, 117, 14);
+		lblNewLabel_3.setBounds(10, 29, 100, 14);
 		panel_1.add(lblNewLabel_3);
 		
 		JButton btnRejestruj = new JButton("Rejestruj");
@@ -121,6 +123,12 @@ public class Rejestracja extends JFrame {
 		contentPane.add(btnRejestruj);
 		
 		JButton btnNewButton = new JButton("Anuluj");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				dispose();
+			}
+		});
 		btnNewButton.setBounds(164, 361, 96, 23);
 		contentPane.add(btnNewButton);
 		

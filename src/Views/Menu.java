@@ -85,7 +85,7 @@ public class Menu extends JFrame {
 		
 		tabbedPane.addTab("Bilans finansowy oferty", new BilansFinasowy());
 		tabbedPane.addTab("Panel Zarz¹dzania Rezerwacjami", new Rezerwacje());
-		tabbedPane.addTab("Nadzorowanie ofertami", new Oferty());
+		tabbedPane.addTab("Nadzorowanie ofertami", new OpisOferty());
 	//	tabbedPane.addTab("Historia Klientów Biura", new Klienci());
 		
 		JButton btnPomoc = new JButton("Pomoc");
@@ -165,11 +165,21 @@ public class Menu extends JFrame {
 	}
 	// TODO
 	private void ZmienHaslo(){
+		//if (zalogowany){
+		
+		ZmianaHasla zh = new ZmianaHasla();
+		zh.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		zh.setVisible(true);
+		//}
 		
 	}
 	
-	private void UsunKonto(){
+	private void UsunKonto()
+	{
+		// if(zalogowany){
+		//Usun();
 		
+		//}
 	}
 	
 }
