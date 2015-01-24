@@ -19,6 +19,8 @@ import javax.swing.JTabbedPane;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Menu extends JFrame {
 
@@ -75,6 +77,14 @@ public class Menu extends JFrame {
 		contentPane.add(btnPomoc);
 		
 		JButton btnOProgramie = new JButton("O programie");
+		btnOProgramie.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Info info = new Info();
+				info.setDefaultCloseOperation(EXIT_ON_CLOSE);
+				info.setVisible(true);
+				
+			}
+		});
 		btnOProgramie.setBounds(339, 11, 110, 23);
 		contentPane.add(btnOProgramie);
 		
