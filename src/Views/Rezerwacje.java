@@ -2,8 +2,11 @@ package Views;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JTable;
+import javax.swing.JButton;
 
 public class Rezerwacje extends JPanel {
+	private JTable table;
 
 	/**
 	 * Create the panel.
@@ -11,9 +14,21 @@ public class Rezerwacje extends JPanel {
 	public Rezerwacje() {
 		setLayout(null);
 		
-		JLabel lblRezerwacjetest = new JLabel("rezerwacje_test");
-		lblRezerwacjetest.setBounds(103, 169, 133, 14);
-		add(lblRezerwacjetest);
+		table = new JTable();
+		table.setBounds(10, 10, 837, 287);
+		add(table);
+		
+		JButton btnNewButton = new JButton("Zaakceptuj rezerwacj\u0119");
+		btnNewButton.setBounds(182, 314, 160, 30);
+		add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Op\u0142acenie rezerwacji");
+		btnNewButton_1.setBounds(371, 314, 160, 30);
+		add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("Usu\u0144 rezerwacj\u0119");
+		btnNewButton_2.setBounds(559, 314, 160, 30);
+		add(btnNewButton_2);
 
 	}
 

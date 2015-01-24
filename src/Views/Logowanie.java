@@ -50,16 +50,16 @@ public class Logowanie extends JFrame {
 		
 		JLabel lblProszOPodanie = new JLabel("Prosz\u0119 o podanie swoich danych dost\u0119powych:");
 		lblProszOPodanie.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblProszOPodanie.setBounds(25, 25, 259, 14);
+		lblProszOPodanie.setBounds(58, 25, 259, 14);
 		contentPane.add(lblProszOPodanie);
 		
 		textField = new JTextField();
-		textField.setBounds(140, 50, 86, 20);
+		textField.setBounds(140, 50, 143, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(140, 81, 86, 20);
+		textField_1.setBounds(140, 81, 143, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
@@ -78,13 +78,13 @@ public class Logowanie extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				
 		//logowanie
-				Menu m = new Menu();
+			/*	Menu m = new Menu();
 				m.setDefaultCloseOperation(EXIT_ON_CLOSE);
 				m.setVisible(true);
 				
 				setVisible(false);
 				dispose();
-				
+				*/
 			}
 		});
 		btnZaloguj.setBounds(25, 136, 110, 23);

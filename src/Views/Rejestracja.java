@@ -108,18 +108,26 @@ public class Rejestracja extends JFrame {
 		comboBox.setBounds(137, 26, 112, 20);
 		panel_1.add(comboBox);
 		
+		comboBox.addItem("Zarz¹dca");
+		comboBox.addItem("Pracownik");
+		
 		JLabel lblNewLabel_3 = new JLabel("Stanowisko:");
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNewLabel_3.setBounds(10, 29, 117, 14);
 		panel_1.add(lblNewLabel_3);
 		
 		JButton btnRejestruj = new JButton("Rejestruj");
-		btnRejestruj.setBounds(10, 361, 96, 23);
+		btnRejestruj.setBounds(58, 361, 96, 23);
 		contentPane.add(btnRejestruj);
 		
 		JButton btnNewButton = new JButton("Anuluj");
 		btnNewButton.setBounds(164, 361, 96, 23);
 		contentPane.add(btnNewButton);
+		
+		JLabel lblIstniejeUser = new JLabel("");
+		lblIstniejeUser.setHorizontalAlignment(SwingConstants.CENTER);
+		lblIstniejeUser.setBounds(10, 326, 307, 14);
+		contentPane.add(lblIstniejeUser);
 	}
 
 }

@@ -6,8 +6,8 @@ public class Main {
 
 	public static void main(String[] args) {
 	
-Logowanie okienko = new Logowanie();
-okienko.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+Menu okienko = new Menu();
+okienko.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 okienko.setVisible(true);
 	}
 
