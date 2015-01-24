@@ -84,9 +84,10 @@ public class Menu extends JFrame {
 		contentPane.add(tabbedPane);
 		
 		tabbedPane.addTab("Bilans finansowy oferty", new BilansFinasowy());
-		tabbedPane.addTab("Panel Zarz¹dzania Rezerwacjami", new Rezerwacje());
+		tabbedPane.addTab("Panel Zarzï¿½dzania Rezerwacjami", new Rezerwacje());
 		tabbedPane.addTab("Nadzorowanie ofertami", new Oferty());
-	//	tabbedPane.addTab("Historia Klientów Biura", new Klienci());
+	//	tabbedPane.addTab("Historia Klientï¿½w Biura", new Klienci());
+
 		
 		JButton btnPomoc = new JButton("Pomoc");
 		btnPomoc.addActionListener(new ActionListener() {
@@ -129,7 +130,7 @@ public class Menu extends JFrame {
 		box.setToolTipText("");
 		box.setBounds(699, 11, 171, 50);
 		contentPane.add(box);
-		box.setBorder(BorderFactory.createTitledBorder("Stan u¿ytkownika"));
+		box.setBorder(BorderFactory.createTitledBorder("Stan uï¿½ytkownika"));
 		
 		JLabel lblStan = new JLabel("Niezalogowany");
 		lblStan.setForeground(new Color(0, 0, 204));
