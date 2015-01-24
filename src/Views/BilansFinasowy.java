@@ -4,10 +4,16 @@ import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTable;
+
 import java.awt.Font;
 import java.awt.Color;
+
 import javax.swing.JComboBox;
 import javax.swing.SwingConstants;
+
+import net.sourceforge.jdatepicker.impl.JDatePanelImpl;
+import net.sourceforge.jdatepicker.impl.JDatePickerImpl;
+import net.sourceforge.jdatepicker.impl.UtilDateModel;
 
 public class BilansFinasowy extends JPanel {
 	private JTable table;
@@ -25,29 +31,38 @@ public class BilansFinasowy extends JPanel {
 		JLabel label = new JLabel("New label");
 		label.setForeground(Color.RED);
 		label.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		label.setBounds(559, 300, 85, 56);
+		label.setBounds(629, 300, 85, 56);
 		add(label);
 		
 		JLabel label_1 = new JLabel("BILANS:");
 		label_1.setForeground(Color.BLACK);
 		label_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		label_1.setBounds(488, 300, 75, 56);
+		label_1.setBounds(558, 300, 75, 56);
 		add(label_1);
 		
 		JButton button = new JButton("Wylicz bilans");
-		button.setBounds(358, 319, 110, 23);
+		button.setBounds(428, 319, 110, 23);
 		add(button);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(263, 319, 85, 20);
-		add(comboBox);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(141, 319, 85, 20);
-		add(comboBox_1);
+		UtilDateModel modelFrom = new UtilDateModel();
+		JDatePanelImpl datePanelFrom = new JDatePanelImpl(modelFrom);
+		JDatePickerImpl datePickerFrom = new JDatePickerImpl(datePanelFrom);	
+		datePickerFrom.setBounds(141, 319, 115, 20);
+		add(datePickerFrom);
+		
+		
+		UtilDateModel modelTo = new UtilDateModel();
+		JDatePanelImpl datePanelTo = new JDatePanelImpl(modelTo);
+		JDatePickerImpl datePickerTo = new JDatePickerImpl(datePanelTo); 
+		datePickerTo.setBounds(293, 319, 115, 20);
+		add(datePickerTo);
+		
+		
+
 		
 		JLabel label_2 = new JLabel("Do:");
-		label_2.setBounds(236, 322, 22, 14);
+		label_2.setBounds(266, 322, 22, 14);
 		add(label_2);
 		
 		JLabel label_3 = new JLabel("Od:");
