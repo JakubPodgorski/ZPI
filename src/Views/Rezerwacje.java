@@ -19,15 +19,15 @@ public class Rezerwacje extends JPanel {
 		add(table);
 		
 		JButton btnNewButton = new JButton("Zaakceptuj rezerwacj\u0119");
-		btnNewButton.setBounds(182, 314, 160, 30);
+		btnNewButton.setBounds(182, 314, 165, 30);
 		add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Op\u0142acenie rezerwacji");
-		btnNewButton_1.setBounds(371, 314, 160, 30);
+		btnNewButton_1.setBounds(371, 314, 165, 30);
 		add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Usu\u0144 rezerwacj\u0119");
-		btnNewButton_2.setBounds(559, 314, 160, 30);
+		btnNewButton_2.setBounds(559, 314, 165, 30);
 		add(btnNewButton_2);
 
 	}
