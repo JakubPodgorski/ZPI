@@ -12,6 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
 
 public class Logowanie extends JFrame {
 
@@ -63,11 +64,13 @@ public class Logowanie extends JFrame {
 		textField_1.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("U\u017Cytkownik:");
-		lblNewLabel.setBounds(75, 53, 60, 14);
+		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblNewLabel.setBounds(35, 53, 100, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblHaso = new JLabel("Has\u0142o:");
-		lblHaso.setBounds(99, 84, 31, 14);
+		lblHaso.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblHaso.setBounds(45, 84, 90, 14);
 		contentPane.add(lblHaso);
 		
 		JButton btnZaloguj = new JButton("Zaloguj");
