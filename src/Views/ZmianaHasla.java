@@ -1,5 +1,7 @@
 package Views;
 
+import Utils.ConnectionDialog;
+import Utils.DataBaseConnector;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -13,16 +15,23 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Types;
+import java.util.concurrent.Callable;
+import static javax.swing.JFrame.EXIT_ON_CLOSE;
+import javax.swing.JOptionPane;
 
 public class ZmianaHasla extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JPasswordField textField;
+	private JPasswordField textField_1;
+	private JPasswordField textField_2;
 	private JButton btnZapisz;
 	private JButton btnAnuluj;
-
+        private String aktualneHaslo;
 	/**
 	 * Launch the application.
 	 */
@@ -83,6 +92,7 @@ public class ZmianaHasla extends JFrame {
 		
 		btnZapisz = new JButton("Zapisz");
 		btnZapisz.setBounds(60, 133, 89, 30);
+                
 		contentPane.add(btnZapisz);
 		
 		btnAnuluj = new JButton("Anuluj");
@@ -95,5 +105,36 @@ public class ZmianaHasla extends JFrame {
 		btnAnuluj.setBounds(181, 133, 89, 30);
 		contentPane.add(btnAnuluj);
 	}
+        
+        public String getAktPassword() {
+        String password = "";
+        char[] pass = textField.getPassword();
+        for(int i=0; i<pass.length; i++) {
+            password += pass[i];
+        }
+        return password;
+    }
+        
+        public String getNowePassword() {
+        String password = "";
+        char[] pass = textField_1.getPassword();
+        for(int i=0; i<pass.length; i++) {
+            password += pass[i];
+        }
+        return password;
+    }
+        
+        public String getPowtNowePassword() {
+        String password = "";
+        char[] pass = textField_2.getPassword();
+        for(int i=0; i<pass.length; i++) {
+            password += pass[i];
+        }
+        return password;
+    }
 
+        public void addZapiszListener(ActionListener l) {
+            btnZapisz.addActionListener(l);
+        }
+        
 }

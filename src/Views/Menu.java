@@ -1,5 +1,6 @@
 package Views;
 
+import Controllers.PasswordChangeController;
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
@@ -181,13 +182,7 @@ public class Menu extends JFrame {
 	}
 	// TODO
 	private void ZmienHaslo(){
-		//if (zalogowany){
-		
-		ZmianaHasla zh = new ZmianaHasla();
-		zh.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		zh.setVisible(true);
-		//}
-		
+		new PasswordChangeController(new ZmianaHasla(), lblStan.getText());                
 	}
 	
 	private void UsunKonto()
