@@ -20,7 +20,7 @@ public class LogController {
     Logowanie view;
     Connection connection;
     Menu m = new Menu();
-
+    
     public static void main(String args[]) {
         Logowanie log = new Logowanie();
         LogController cLog = new LogController(log);
@@ -30,6 +30,7 @@ public class LogController {
         this.view = view;
         view.addZalogujListener(new AkcjaLoguj());
         view.setVisible(true);
+        m.setLogView(view);
     }
 
     class AkcjaLoguj implements ActionListener {
@@ -55,6 +56,7 @@ public class LogController {
                     return null;
                 }
             });
+            m.setLoginAsLabel(login);
             switch (DataBaseConnector.getInstance().getPrivileges()) {
                 case 1:                    
                     m.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -66,7 +68,6 @@ public class LogController {
                     break;
                     
                 case 2:
-                    m = new Menu();
                     m.setDefaultCloseOperation(EXIT_ON_CLOSE);
                     m.setVisible(true);
                   //  m.lblStan.setText("Zalogowany");

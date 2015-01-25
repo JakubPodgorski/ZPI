@@ -115,4 +115,9 @@ public class Logowanie extends JFrame {
     public void addZalogujListener(ActionListener l){
     	btnZaloguj.addActionListener(l);
     }
+    
+    public void clearLoggingData() {
+        loginField.setText(null);
+        passwordField.setText(null);
+    }
 }

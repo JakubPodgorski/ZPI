@@ -27,7 +27,8 @@ import java.awt.event.ActionEvent;
 public class Menu extends JFrame {
 
 	private JPanel contentPane;
-
+        private Logowanie logView;
+        private JLabel lblStan;
 
 	/**
 	 * Launch the application.
@@ -60,7 +61,7 @@ public class Menu extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnNewButton = new JButton("Logowanie");
+		JButton btnNewButton = new JButton("Wyloguj");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Logowanie();
@@ -86,7 +87,7 @@ public class Menu extends JFrame {
 		
 		tabbedPane.addTab("Bilans finansowy oferty", new BilansFinasowy());
 		final Rezerwacje rez = new Rezerwacje();
-		tabbedPane.addTab("Panel Zarz¹dzania Rezerwacjami", rez);
+		tabbedPane.addTab("Panel Zarzï¿½dzania Rezerwacjami", rez);
 		tabbedPane.addTab("Nadzorowanie ofertami", new OpisOferty());
 		
 		tabbedPane.addChangeListener( new ChangeListener(){
@@ -144,9 +145,9 @@ public class Menu extends JFrame {
 		box.setToolTipText("");
 		box.setBounds(699, 11, 171, 50);
 		contentPane.add(box);
-		box.setBorder(BorderFactory.createTitledBorder("Stan u¿ytkownika"));
+		box.setBorder(BorderFactory.createTitledBorder("Zalogowano jako"));
 		
-		JLabel lblStan = new JLabel("Zalogowany");
+		lblStan = new JLabel();
 		lblStan.setForeground(new Color(0, 0, 204));
 		lblStan.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		box.add(lblStan);
@@ -160,11 +161,11 @@ public class Menu extends JFrame {
 	}
 	
 	private void Logowanie()
-	{
-		Logowanie log = new Logowanie();
-		log.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		log.setVisible(true);
-	
+	{		
+		logView.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+                logView.clearLoggingData();
+		logView.setVisible(true);
+                this.dispose();
 	}
 	private void Help()
 	{
@@ -196,5 +197,12 @@ public class Menu extends JFrame {
 		
 		//}
 	}
+        
+        public void setLogView(Logowanie log) {
+            this.logView = log;
+        }
 	
+        public void setLoginAsLabel(String login) {
+            lblStan.setText(login);
+        }
 }
