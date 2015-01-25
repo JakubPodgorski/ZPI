@@ -59,14 +59,17 @@ public class LogController {
                 case 1:                    
                     m.setDefaultCloseOperation(EXIT_ON_CLOSE);
                     m.setVisible(true);
+                  //  m.lblStan.setText("Zalogowany");
                     //view.setVisible(false);
                     view.dispose();
+                    
                     break;
                     
                 case 2:
                     m = new Menu();
                     m.setDefaultCloseOperation(EXIT_ON_CLOSE);
                     m.setVisible(true);
+                  //  m.lblStan.setText("Zalogowany");
                     //view.setVisible(false);
                     view.dispose();
                     break;

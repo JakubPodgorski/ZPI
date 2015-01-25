@@ -1,7 +1,12 @@
 package Utils;
 
 import java.awt.BorderLayout;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.concurrent.Callable;
+
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -78,5 +83,4 @@ public class ConnectionDialog extends JDialog {
 		d.setLocationRelativeTo(null);
 		d.setVisible(true);
 	}
-
 }

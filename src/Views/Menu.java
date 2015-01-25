@@ -1,9 +1,6 @@
 package Views;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -12,13 +9,11 @@ import javax.swing.JButton;
 import java.awt.Color;
 
 import javax.swing.BorderFactory;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.SwingConstants;
-import javax.swing.JTextField;
 import javax.swing.JTabbedPane;
 import javax.swing.JLabel;
-import javax.swing.JComboBox;
+
+
+import Utils.DataBaseConnector;
 
 import java.awt.Font;
 import java.awt.event.ActionListener;
@@ -27,6 +22,7 @@ import java.awt.event.ActionEvent;
 public class Menu extends JFrame {
 
 	private JPanel contentPane;
+
 
 	/**
 	 * Launch the application.
@@ -106,7 +102,7 @@ public class Menu extends JFrame {
 			}
 		});
 		btnOProgramie.setBounds(339, 11, 110, 23);
-		contentPane.add(btnOProgramie);
+		contentPane.add(btnOProgramie);	
 		
 		JButton btnZmieHaso = new JButton("Zmie\u0144 has\u0142o");
 		btnZmieHaso.addActionListener(new ActionListener() {

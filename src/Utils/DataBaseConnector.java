@@ -4,6 +4,8 @@ package Utils;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.util.concurrent.Callable;
@@ -147,9 +149,9 @@ public class DataBaseConnector {
 		return privs.accessLevel;
 	}
 
-	public Connection getConnection() {
+	public static Connection getConnection() {
 		try {
-			if ( !connection.isValid(0)) {
+			if (!connection.isValid(0)) {
 				ConnectionDialog.doInBackground(
 						"Utracono po��czenie, trwa ponowne ��czenie",
 						new Callable<Void>() {
@@ -203,4 +205,22 @@ public class DataBaseConnector {
 		if(a=="administrator")
 			privs=Privileges.admin;
 	}
+
+	public static void close(ResultSet rs, PreparedStatement stmt, Connection con) throws SQLException {
+        try {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stmt != null) {
+                stmt.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        } catch (SQLException e) {
+            throw new SQLException(e);
+        }
+    }
+
+	
 }
