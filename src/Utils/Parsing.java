@@ -15,5 +15,14 @@ public class Parsing {
 	        }
 	        return null;
 	    }
-	
+
+	 
+	 public static String dateToStringVisualFriendly(Date date)  {
+	        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy", Locale.ENGLISH);
+	        if (date != null) {
+	            return sdf.format(date);
+	        }
+	        return null;
+	    }
+	 
 }

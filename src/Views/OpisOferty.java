@@ -19,14 +19,14 @@ import java.sql.SQLException;
 import java.sql.Types;
 import java.util.Random;
 
-import javax.swing.JPanel;
-import javax.swing.JPanel;
-
 import Utils.Constants;
 import Utils.DataBaseConnector;
-import Utils.Parsing;
 
 public class OpisOferty extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JTable table;
 	Object rowDATAA[][] = new Object[25][9];
 	String idTable[] = new String[25];
@@ -75,8 +75,6 @@ public class OpisOferty extends JPanel {
 		// table.repaint();
 		// table.update(getGraphics());
 		// table.revalidate();
-		// System.out.println("REPAINTED");
-
 		con = DataBaseConnector.getConnection();
 		if (con == null) {
 			// label.setText("Blad polaczenia z baza danych");
@@ -86,12 +84,6 @@ public class OpisOferty extends JPanel {
 				stmt = con.prepareStatement(stmtStr);
 				System.out.println(stmt.toString());
 				rs = stmt.executeQuery();
-				Random spots = new Random();
-
-				long earnings = 0;
-				// if (rs == null) {
-				// DataBaseConnector.close(rs, stmt, con);
-				// }
 
 				int row = 0;
 
@@ -102,7 +94,7 @@ public class OpisOferty extends JPanel {
 					rowDATAA[row][2] = rs.getString(Constants.DB_DESCRIPTION);
 					rowDATAA[row][3] = rs.getString(Constants.DB_COUNTRY);
 					rowDATAA[row][4] = rs.getString(Constants.DB_CITY);
-					rowDATAA[row][5] = 5 + 3 * rs.getInt(Constants.DB_MARK);
+					rowDATAA[row][5] = 4 * rs.getInt(Constants.DB_PERSON_COUNT);
 					rowDATAA[row][6] = rs.getString(Constants.DB_FINAL_PRICE);
 					rowDATAA[row][7] = rs.getString(Constants.DB_MARK);
 					idTable[row] = rs.getString(Constants.DB_ID);
@@ -112,11 +104,6 @@ public class OpisOferty extends JPanel {
 
 				}
 				// DataBaseConnector.close(rs, stmt, con);
-				rowDATAA[1][0] = "test";
-				rowDATAA[3][0] = "test";
-				rowDATAA[4][0] = "test";
-				rowDATAA[1][0] = "test";
-
 				// table = new JTable(rowDATAA, Constants.columnNamesOffers);
 				table.repaint();
 
@@ -162,7 +149,7 @@ public class OpisOferty extends JPanel {
 				// System.out.println("CONF"+ confirmation);
 
 				if (JOptionPane.showConfirmDialog(null,
-						"Czy na pewno chcesz usun¹æ t¹ ofertê?") == 0) {
+						"Czy na pewno chcesz usun¹æ tê ofertê?") == 0) {
 					try {
 						stmt = con
 								.prepareCall("{?= call OFERTA_USUN_OPCJE (?)}");
