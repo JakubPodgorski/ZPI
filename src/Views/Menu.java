@@ -86,7 +86,7 @@ public class Menu extends JFrame {
 		
 		tabbedPane.addTab("Bilans finansowy oferty", new BilansFinasowy());
 		final Rezerwacje rez = new Rezerwacje();
-		tabbedPane.addTab("Panel Zarzï¿½dzania Rezerwacjami", rez);
+		tabbedPane.addTab("Panel Zarz¹dzania Rezerwacjami", rez);
 		tabbedPane.addTab("Nadzorowanie ofertami", new OpisOferty());
 		
 		tabbedPane.addChangeListener( new ChangeListener(){
@@ -144,9 +144,9 @@ public class Menu extends JFrame {
 		box.setToolTipText("");
 		box.setBounds(699, 11, 171, 50);
 		contentPane.add(box);
-		box.setBorder(BorderFactory.createTitledBorder("Stan uï¿½ytkownika"));
+		box.setBorder(BorderFactory.createTitledBorder("Stan u¿ytkownika"));
 		
-		JLabel lblStan = new JLabel("Niezalogowany");
+		JLabel lblStan = new JLabel("Zalogowany");
 		lblStan.setForeground(new Color(0, 0, 204));
 		lblStan.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		box.add(lblStan);
