@@ -74,7 +74,7 @@ public class Menu extends JFrame {
 				RejestrujUsera();
 			}
 		});
-		btnRejestracja.setBounds(121, 11, 100, 23);
+		btnRejestracja.setBounds(350, 11, 100, 23);
 		contentPane.add(btnRejestracja);
 
 		 tabbedPane = new JTabbedPane(JTabbedPane.TOP);
@@ -111,7 +111,7 @@ public class Menu extends JFrame {
 				Help();
 			}
 		});
-		btnPomoc.setBounds(230, 11, 100, 23);
+		btnPomoc.setBounds(120, 11, 100, 23);
 		contentPane.add(btnPomoc);
 
 		JButton btnOProgramie = new JButton("O programie");
@@ -121,7 +121,7 @@ public class Menu extends JFrame {
 
 			}
 		});
-		btnOProgramie.setBounds(339, 11, 110, 23);
+		btnOProgramie.setBounds(230, 11, 110, 23);
 		contentPane.add(btnOProgramie);
 
 		 btnZmieHaso = new JButton("Zmie\u0144 has\u0142o");
