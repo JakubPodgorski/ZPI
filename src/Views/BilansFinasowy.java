@@ -89,7 +89,7 @@ public class BilansFinasowy extends JPanel {
 		final Object rowDATAA[][] = new Object[60][6];
 
 		
-		   JTable table = new JTable(rowDATAA, Constants.columnNames);
+		   JTable table = new JTable(rowDATAA, Constants.columnNamesBilans);
 	    JScrollPane scrollPane = new JScrollPane(table);
 	    scrollPane.setBounds(10, 38, 837, 262);
 	   
@@ -148,7 +148,7 @@ public class BilansFinasowy extends JPanel {
 						// DataBaseConnector.close(rs, stmt, con);
 						label.setText(Long.toString(earnings));
 
-						String stmtStr2 = Constants.SELECT_OFFERS;
+						String stmtStr2 = Constants.SELECT_OFFERS_TIMESTAMP;
 						PreparedStatement stmt2 = null;
 						ResultSet rs2 = null;
 						
@@ -182,7 +182,7 @@ public class BilansFinasowy extends JPanel {
 						}
 						// DataBaseConnector.close(rs, stmt, con);
 						
-						   JTable table = new JTable(rowDATAA, Constants.columnNames);
+						   JTable table = new JTable(rowDATAA, Constants.columnNamesBilans);
 						    JScrollPane scrollPane = new JScrollPane(table);
 						    scrollPane.setBounds(10, 38, 837, 262);
 						    add(scrollPane, BorderLayout.CENTER);

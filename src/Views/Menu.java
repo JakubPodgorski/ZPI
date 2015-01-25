@@ -88,8 +88,10 @@ public class Menu extends JFrame {
 		
 		tabbedPane.addTab("Bilans finansowy oferty", new BilansFinasowy());
 		final Rezerwacje rez = new Rezerwacje();
-		tabbedPane.addTab("Panel Zarzï¿½dzania Rezerwacjami", rez);
-		tabbedPane.addTab("Nadzorowanie ofertami", new OpisOferty());
+		tabbedPane.addTab("Panel Zarz¹dzania Rezerwacjami", rez);
+		
+		final OpisOferty offerInfo = new OpisOferty();
+		tabbedPane.addTab("Nadzorowanie ofertami", offerInfo);
 		
 		tabbedPane.addChangeListener( new ChangeListener(){
 			public void stateChanged(ChangeEvent evt)
@@ -99,6 +101,13 @@ public class Menu extends JFrame {
 				{
 					rez.WyszukajRezerwacje();
 				}
+				if(tbPane.getSelectedIndex() == 2)
+				{
+					System.out.println ("FILL TABLE");
+					offerInfo.fillTable();
+				}
+				
+				
 			}
 			
 		});

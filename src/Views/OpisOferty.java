@@ -1,26 +1,42 @@
 package Views;
 
+import javax.swing.DefaultListSelectionModel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JButton;
+
+import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Types;
+import java.util.Random;
+
 import javax.swing.JPanel;
 import javax.swing.JPanel;
+
+import Utils.Constants;
+import Utils.DataBaseConnector;
+import Utils.Parsing;
+
 public class OpisOferty extends JPanel {
 	private JTable table;
+	Object rowDATAA[][] = new Object[25][9];
+	String idTable[] = new String[25];
 
 	/**
 	 * Create the panel.
 	 */
 	public OpisOferty() {
 		setLayout(null);
-		
-		table = new JTable();
-		table.setBounds(10, 10, 837, 287);
-		add(table);
-		
+
 		JButton btnNewButton = new JButton("Dodaj now\u0105 ofert\u0119");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -29,17 +45,166 @@ public class OpisOferty extends JPanel {
 		});
 		btnNewButton.setBounds(238, 309, 175, 30);
 		add(btnNewButton);
-		
-		JButton btnNewButton_2 = new JButton("Usu\u0144 zaznaczon\u0105 ofert\u0119 ");
+
+		JButton btnNewButton_2 = new JButton(
+				"Usu\u0144 zaznaczon\u0105 ofert\u0119 ");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				UsunOferte();
+			}
+		});
 		btnNewButton_2.setBounds(423, 309, 175, 30);
 		add(btnNewButton_2);
 
+		table = new JTable(rowDATAA, Constants.columnNamesOffers);
+		table.setSelectionMode(DefaultListSelectionModel.SINGLE_SELECTION);
+
+		JScrollPane scrollPane = new JScrollPane(table);
+		scrollPane.setBounds(10, 38, 837, 262);
+		add(scrollPane, BorderLayout.CENTER);
+
 	}
 
-	private void DodajOferte()
-	{
+	public void fillTable() {
+
+		String stmtStr = Constants.SELECT_ALL_OFFERS;
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+
+		// table.repaint();
+		// table.update(getGraphics());
+		// table.revalidate();
+		// System.out.println("REPAINTED");
+
+		con = DataBaseConnector.getConnection();
+		if (con == null) {
+			// label.setText("Blad polaczenia z baza danych");
+		} else {
+			try {
+
+				stmt = con.prepareStatement(stmtStr);
+				System.out.println(stmt.toString());
+				rs = stmt.executeQuery();
+				Random spots = new Random();
+
+				long earnings = 0;
+				// if (rs == null) {
+				// DataBaseConnector.close(rs, stmt, con);
+				// }
+
+				int row = 0;
+
+				clearTable();
+				while (rs.next()) {
+					rowDATAA[row][0] = rs.getString(Constants.DB_OFFER_ID);
+					rowDATAA[row][1] = rs.getString(Constants.DB_TITLE);
+					rowDATAA[row][2] = rs.getString(Constants.DB_DESCRIPTION);
+					rowDATAA[row][3] = rs.getString(Constants.DB_COUNTRY);
+					rowDATAA[row][4] = rs.getString(Constants.DB_CITY);
+					rowDATAA[row][5] = 5 + 3 * rs.getInt(Constants.DB_MARK);
+					rowDATAA[row][6] = rs.getString(Constants.DB_FINAL_PRICE);
+					rowDATAA[row][7] = rs.getString(Constants.DB_MARK);
+					idTable[row] = rs.getString(Constants.DB_ID);
+					row++;
+
+					System.out.println(row);
+
+				}
+				// DataBaseConnector.close(rs, stmt, con);
+				rowDATAA[1][0] = "test";
+				rowDATAA[3][0] = "test";
+				rowDATAA[4][0] = "test";
+				rowDATAA[1][0] = "test";
+
+				// table = new JTable(rowDATAA, Constants.columnNamesOffers);
+				table.repaint();
+
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+	}
+
+	private void DodajOferte() {
 		OpcjaOferty ofe = new OpcjaOferty();
 		ofe.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		ofe.setVisible(true);
+		
+		
+		
+		
 	}
+
+	private void UsunOferte() {
+
+		System.out.println("?IM IN!?!?!");
+
+		int rowId = table.getSelectedRow();
+		System.out.println("Indeks " + rowId);
+		if (rowId == -1 || rowDATAA[rowId][0] == null) {
+			JOptionPane.showMessageDialog(null, "Zaznaczono pusty wiersz");
+
+			System.out.println("?!?!?!");
+		} else {
+			String procedure = "OFERTA_USUN_OPCJE";
+
+			CallableStatement stmt = null;
+			Connection con = DataBaseConnector.getConnection();
+			if (con == null) {
+				JOptionPane.showMessageDialog(null,
+						"B³¹d po³¹czenia z baz¹ danych");
+			} else {
+				// int confirmation = JOptionPane.showConfirmDialog(null,
+				// "Czy na pewno chcesz usun¹æ t¹ ofertê?");
+
+				// System.out.println("CONF"+ confirmation);
+
+				if (JOptionPane.showConfirmDialog(null,
+						"Czy na pewno chcesz usun¹æ t¹ ofertê?") == 0) {
+					try {
+						stmt = con
+								.prepareCall("{?= call OFERTA_USUN_OPCJE (?)}");
+						stmt.registerOutParameter(1, Types.INTEGER);
+
+						stmt.setString(2, idTable[rowId]);
+
+						System.out.println(idTable[rowId]);
+
+						stmt.execute();
+						int retVal = stmt.getInt(1);
+						if (retVal != -1) {
+							System.out.println("Usunieto rezerwacje " + retVal);
+
+							JOptionPane.showMessageDialog(null,
+									"Usunieto ofertê");
+							fillTable();
+							table.repaint();
+						}
+						// stmt.close();
+						// con.close();
+
+						// ();
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+
+					}
+				}
+			}
+		}
+	}
+
+	void clearTable() {
+
+		for (int i = 0; i < rowDATAA.length; i++) {
+			for (int j = 0; j < rowDATAA[i].length; j++) {
+				rowDATAA[i][j] = null;
+				// System.out.println(rowDATAA[i].length);
+			}
+		}
+
+	}
+
 }
