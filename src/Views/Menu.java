@@ -1,9 +1,12 @@
 package Views;
 
 import java.awt.Dimension;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.JButton;
 
 import java.awt.Color;
@@ -11,6 +14,8 @@ import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JTabbedPane;
 import javax.swing.JLabel;
+
+
 
 
 import Utils.DataBaseConnector;
@@ -80,9 +85,22 @@ public class Menu extends JFrame {
 		contentPane.add(tabbedPane);
 		
 		tabbedPane.addTab("Bilans finansowy oferty", new BilansFinasowy());
-
-		tabbedPane.addTab("Panel Zarz�dzania Rezerwacjami", new Rezerwacje());
+		final Rezerwacje rez = new Rezerwacje();
+		tabbedPane.addTab("Panel Zarz�dzania Rezerwacjami", rez);
 		tabbedPane.addTab("Nadzorowanie ofertami", new OpisOferty());
+		
+		tabbedPane.addChangeListener( new ChangeListener(){
+			public void stateChanged(ChangeEvent evt)
+			{
+				JTabbedPane tbPane = (JTabbedPane) evt.getSource();
+				if(tbPane.getSelectedIndex() == 1)
+				{
+					rez.WyszukajRezerwacje();
+				}
+			}
+			
+		});
+		
 	//	tabbedPane.addTab("Historia Klient�w Biura", new Klienci());
 		
 		JButton btnPomoc = new JButton("Pomoc");

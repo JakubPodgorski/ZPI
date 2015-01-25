@@ -107,7 +107,7 @@ public class DataBaseConnector {
 				//System.out.print("czyli jednak dzia�a");
 			}
                         if (privs.equals(2)) {
-				DataBaseConnector.privs = Privileges.admin;
+				DataBaseConnector.privs = Privileges.worker;
 				dbaLogin = DataBaseConnector.privs.login;
 				dbaPassword = DataBaseConnector.privs.password;
 				//System.out.print("czyli jednak dzia�a");
