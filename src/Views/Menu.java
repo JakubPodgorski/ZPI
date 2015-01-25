@@ -27,6 +27,12 @@ public class Menu extends JFrame {
 	private JPanel contentPane;
 	private Logowanie logView;
 	private JLabel lblStan;
+	JTabbedPane tabbedPane;
+	JButton btnPomoc;
+	JButton btnNewButton;
+	JButton btnUsuKonto;
+	JButton btnZmieHaso;
+	JButton btnRejestracja;
 
 	/**
 	 * Launch the application.
@@ -52,7 +58,7 @@ public class Menu extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JButton btnNewButton = new JButton("Wyloguj");
+		btnNewButton = new JButton("Wyloguj");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Logowanie();
@@ -61,24 +67,24 @@ public class Menu extends JFrame {
 		btnNewButton.setBounds(10, 11, 100, 23);
 		contentPane.add(btnNewButton);
 
-		JButton btnNewButton_1 = new JButton("Rejestracja");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		btnRejestracja = new JButton("Rejestracja");
+		btnRejestracja.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// rejestracja
 				RejestrujUsera();
 			}
 		});
-		btnNewButton_1.setBounds(121, 11, 100, 23);
-		contentPane.add(btnNewButton_1);
+		btnRejestracja.setBounds(121, 11, 100, 23);
+		contentPane.add(btnRejestracja);
 
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		 tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBorder(null);
 		tabbedPane.setBounds(10, 51, 860, 383);
 		contentPane.add(tabbedPane);
 
 		tabbedPane.addTab("Bilans finansowy oferty", new BilansFinasowy());
 		final Rezerwacje rez = new Rezerwacje();
-		tabbedPane.addTab("Panel Zarz�dzania Rezerwacjami", rez);
+		tabbedPane.addTab("Panel Zarz¹dzania Rezerwacjami", rez);
 
 		final OpisOferty offerInfo = new OpisOferty();
 		tabbedPane.addTab("Nadzorowanie ofertami", offerInfo);
@@ -97,7 +103,7 @@ public class Menu extends JFrame {
 
 		});
 
-		// tabbedPane.addTab("Historia Klient�w Biura", new Klienci());
+		// tabbedPane.addTab("Historia Klientï¿½w Biura", new Klienci());
 
 		JButton btnPomoc = new JButton("Pomoc");
 		btnPomoc.addActionListener(new ActionListener() {
@@ -118,7 +124,7 @@ public class Menu extends JFrame {
 		btnOProgramie.setBounds(339, 11, 110, 23);
 		contentPane.add(btnOProgramie);
 
-		JButton btnZmieHaso = new JButton("Zmie\u0144 has\u0142o");
+		 btnZmieHaso = new JButton("Zmie\u0144 has\u0142o");
 		btnZmieHaso.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ZmienHaslo();
@@ -127,7 +133,7 @@ public class Menu extends JFrame {
 		btnZmieHaso.setBounds(456, 11, 110, 23);
 		contentPane.add(btnZmieHaso);
 
-		JButton btnUsuKonto = new JButton("Usu\u0144 konto");
+		 btnUsuKonto = new JButton("Usu\u0144 konto");
 		btnUsuKonto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				UsunKonto();
@@ -192,4 +198,35 @@ public class Menu extends JFrame {
 	public void setLoginAsLabel(String login) {
 		lblStan.setText(login);
 	}
+	  public void UstawMenu(int dostep)
+      {
+      	switch(dostep)
+      	{
+      	
+      	case 1: // admin
+      		tabbedPane.setVisible(true);
+              btnZmieHaso.setVisible(true);
+              btnUsuKonto.setVisible(true);
+              btnRejestracja.setVisible(true);	
+      	break;	
+      		
+      	case 2: // pracownik
+      		tabbedPane.setVisible(true);
+              btnZmieHaso.setVisible(false);
+              btnUsuKonto.setVisible(false);
+              btnRejestracja.setVisible(false);
+      		break;
+      		
+      	default: //niezalogowany	
+      		
+      		tabbedPane.setVisible(false);
+      		btnRejestracja.setVisible(false);
+              btnZmieHaso.setVisible(false);
+              btnUsuKonto.setVisible(false);
+      		
+      		
+      	break;
+      	}
+      }
+      
 }

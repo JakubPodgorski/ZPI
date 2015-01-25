@@ -57,11 +57,12 @@ public class LogController {
                 }
             });
             m.setLoginAsLabel(login);
+            m.UstawMenu(DataBaseConnector.getInstance().getPrivileges());
             switch (DataBaseConnector.getInstance().getPrivileges()) {
                 case 1:                    
                     m.setDefaultCloseOperation(EXIT_ON_CLOSE);
                     m.setVisible(true);
-                  //  m.lblStan.setText("Zalogowany");
+                    //  m.lblStan.setText("Zalogowany");
                     //view.setVisible(false);
                     view.dispose();
                     
@@ -70,6 +71,7 @@ public class LogController {
                 case 2:
                     m.setDefaultCloseOperation(EXIT_ON_CLOSE);
                     m.setVisible(true);
+                  
                   //  m.lblStan.setText("Zalogowany");
                     //view.setVisible(false);
                     view.dispose();
