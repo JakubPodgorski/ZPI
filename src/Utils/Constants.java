@@ -17,7 +17,6 @@ public class Constants {
 
 	
 	public final static String columnNames[] = { "Numer oferty", "Termin", "Miasto", "Koszt w³asny", "Cena", "Zarezerwowano" };
-	
 	public final static String kolumnyRezerwacje[] = { "Numer rezerwacji", "Dane oferty", "Imiê i nazwisko", "Adres", "E-mail", "Telefon", "Status" };
 
 	

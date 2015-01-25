@@ -8,20 +8,32 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
+
+import Utils.DataBaseConnector;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Types;
+import java.awt.Font;
+import java.awt.Color;
 
 public class Rejestracja extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-
+	private JTextField txLogin;
+	private JTextField txHaslo;
+	private JTextField txHaslo2;
+	JComboBox cbPracownik; 
+	JLabel lblIstniejeUser;
 	/**
 	 * Launch the application.
 	 */
@@ -75,20 +87,20 @@ public class Rejestracja extends JFrame {
 		lblNewLabel.setBounds(16, 27, 93, 14);
 		panel.add(lblNewLabel);
 		
-		textField = new JTextField();
-		textField.setBounds(119, 24, 145, 20);
-		panel.add(textField);
-		textField.setColumns(10);
+		txLogin = new JTextField();
+		txLogin.setBounds(119, 24, 145, 20);
+		panel.add(txLogin);
+		txLogin.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(119, 55, 145, 20);
-		panel.add(textField_1);
-		textField_1.setColumns(10);
+		txHaslo = new JPasswordField();
+		txHaslo.setBounds(119, 55, 145, 20);
+		panel.add(txHaslo);
+		txHaslo.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(119, 86, 145, 20);
-		panel.add(textField_2);
-		textField_2.setColumns(10);
+		txHaslo2 = new JPasswordField();
+		txHaslo2.setBounds(119, 86, 145, 20);
+		panel.add(txHaslo2);
+		txHaslo2.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("Has\u0142o:");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -106,12 +118,13 @@ public class Rejestracja extends JFrame {
 		panel_1.setBorder(BorderFactory.createTitledBorder("Dane pracownika"));
 		panel_1.setLayout(null);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(120, 26, 140, 20);
-		panel_1.add(comboBox);
+		cbPracownik = new JComboBox();
+		cbPracownik.setBounds(120, 26, 140, 20);
+		panel_1.add(cbPracownik);
 		
-		comboBox.addItem("Zarz¹dca");
-		comboBox.addItem("Pracownik");
+		cbPracownik.addItem("Administrator");
+		cbPracownik.addItem("Pracownik");
+		
 		
 		JLabel lblNewLabel_3 = new JLabel("Stanowisko:");
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -119,6 +132,11 @@ public class Rejestracja extends JFrame {
 		panel_1.add(lblNewLabel_3);
 		
 		JButton btnRejestruj = new JButton("Rejestruj");
+		btnRejestruj.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Rejestracja();
+			}
+		});
 		btnRejestruj.setBounds(58, 361, 96, 23);
 		contentPane.add(btnRejestruj);
 		
@@ -132,10 +150,85 @@ public class Rejestracja extends JFrame {
 		btnNewButton.setBounds(164, 361, 96, 23);
 		contentPane.add(btnNewButton);
 		
-		JLabel lblIstniejeUser = new JLabel("");
+		 lblIstniejeUser = new JLabel("");
+		 lblIstniejeUser.setForeground(Color.RED);
+		 lblIstniejeUser.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblIstniejeUser.setHorizontalAlignment(SwingConstants.CENTER);
-		lblIstniejeUser.setBounds(10, 326, 307, 14);
+		lblIstniejeUser.setBounds(10, 320, 307, 30);
 		contentPane.add(lblIstniejeUser);
 	}
 
+	
+	private void Rejestracja()
+	{
+		if(txLogin.getText().equals(""))
+		{
+			lblIstniejeUser.setText("Podaj login!");
+			return;
+		}
+		
+		if(txHaslo.getText().equals("") || txHaslo2.getText().equals(""))
+		{
+			lblIstniejeUser.setText("Podaj haslo!");
+			return;
+		}
+		
+		lblIstniejeUser.setText("");
+		if(!txHaslo.getText().equals(txHaslo2.getText()))
+		{
+			lblIstniejeUser.setText("Wprowadzone has³a s¹ ró¿ne");
+			txHaslo2.setText("");
+			txHaslo2.setFont(txHaslo2.getFont());
+			return;
+		}
+		else
+		{		
+			
+				
+			CallableStatement stmt = null;
+			Connection	con = DataBaseConnector.getConnection();
+			if(con==null){
+				 JOptionPane.showMessageDialog(null, "B³¹d po³¹czenia z baz¹ danych");
+			}
+			else{
+
+				
+				try {
+					String login = txLogin.getText().toString();
+					String haslo = txHaslo.getText().toString();
+					String pracownik = cbPracownik.getSelectedItem().toString();
+					if(pracownik.equals("Pracownik"))
+					{
+					stmt = con.prepareCall("{?= call user_add_user (?, ?)}");
+					}
+					else
+					{
+						stmt = con.prepareCall("{?= call user_add_admin (?, ?)}");
+					}
+					stmt.registerOutParameter (1, Types.INTEGER);
+					
+					 stmt.setString (2, login);  
+					 stmt.setString (3, haslo);   
+					 
+					 stmt.execute ();
+					 int retVal = stmt.getInt (1);
+					
+					 if(retVal == -1)
+					 {
+						 lblIstniejeUser.setText("Podany login jest zajêty!");
+					 
+					 }
+					 else
+						 JOptionPane.showMessageDialog(null, "Dodano u¿ytkownika o loginie: " + login);
+		
+				}
+				catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+					
+				}
+				
+			}
+		}
+	}
 }
