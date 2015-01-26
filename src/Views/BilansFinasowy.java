@@ -88,9 +88,12 @@ public class BilansFinasowy extends JPanel {
 		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
 		centerRenderer.setHorizontalAlignment(JLabel.CENTER);
 
-		table = new JTable(rowDATAA, Constants.columnNamesBilans);
+		table = new JTable(rowDATAA, Constants.columnNamesBilans){
+		    public boolean isCellEditable(int rowIndex, int colIndex) {
+		        return false;   //Disallow the editing of any cell
+		    }
+		};
 		table.setDefaultRenderer(Object.class, centerRenderer);
-		table.setEnabled(false);
 
 		table.getColumnModel().getColumn(1).setPreferredWidth(120);
 

@@ -1,12 +1,15 @@
 package Views;
 
 import javax.swing.DefaultListSelectionModel;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JButton;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
@@ -27,9 +30,9 @@ public class OpisOferty extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JTable table;
-	Object rowDATAA[][] = new Object[25][9];
-	String idTable[] = new String[25];
+	private static JTable table;
+	static Object rowDATAA[][] = new Object[25][9];
+	static String idTable[] = new String[25];
 
 	/**
 	 * Create the panel.
@@ -55,9 +58,27 @@ public class OpisOferty extends JPanel {
 		});
 		btnNewButton_2.setBounds(423, 309, 175, 30);
 		add(btnNewButton_2);
-
-		table = new JTable(rowDATAA, Constants.columnNamesOffers);
+		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+		centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+		table = new JTable(rowDATAA, Constants.columnNamesOffers){
+		    public boolean isCellEditable(int rowIndex, int colIndex) {
+		        return false;   //Disallow the editing of any cell
+		    }
+		};
 		table.setSelectionMode(DefaultListSelectionModel.SINGLE_SELECTION);
+		table.setDefaultRenderer(Object.class, centerRenderer);
+		
+	/*	DefaultTableModel tableModel = new DefaultTableModel() {
+
+		    @Override
+		    public boolean isCellEditable(int row, int column) {
+		        //all cells false
+		        return false;
+		    }
+		};
+
+		table.setModel(tableModel);*/
+	//	table.setEnabled(false);
 
 		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setBounds(10, 38, 837, 262);
@@ -65,7 +86,8 @@ public class OpisOferty extends JPanel {
 
 	}
 
-	public void fillTable() {
+	
+	public static void fillTable() {
 
 		String stmtStr = Constants.SELECT_ALL_OFFERS;
 		Connection con = null;
@@ -91,6 +113,9 @@ public class OpisOferty extends JPanel {
 				while (rs.next()) {
 					rowDATAA[row][0] = rs.getString(Constants.DB_OFFER_ID);
 					rowDATAA[row][1] = rs.getString(Constants.DB_TITLE);
+					
+					System.out.println(rs.getString(Constants.DB_TITLE));
+					
 					rowDATAA[row][2] = rs.getString(Constants.DB_DESCRIPTION);
 					rowDATAA[row][3] = rs.getString(Constants.DB_COUNTRY);
 					rowDATAA[row][4] = rs.getString(Constants.DB_CITY);
@@ -126,17 +151,12 @@ public class OpisOferty extends JPanel {
 
 	private void UsunOferte() {
 
-		System.out.println("?IM IN!?!?!");
-
 		int rowId = table.getSelectedRow();
 		System.out.println("Indeks " + rowId);
 		if (rowId == -1 || rowDATAA[rowId][0] == null) {
 			JOptionPane.showMessageDialog(null, "Zaznaczono pusty wiersz");
 
-			System.out.println("?!?!?!");
 		} else {
-			String procedure = "OFERTA_USUN_OPCJE";
-
 			CallableStatement stmt = null;
 			Connection con = DataBaseConnector.getConnection();
 			if (con == null) {
@@ -183,7 +203,7 @@ public class OpisOferty extends JPanel {
 		}
 	}
 
-	void clearTable() {
+	static void clearTable() {
 
 		for (int i = 0; i < rowDATAA.length; i++) {
 			for (int j = 0; j < rowDATAA[i].length; j++) {
