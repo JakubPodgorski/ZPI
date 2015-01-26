@@ -1,5 +1,6 @@
 package Views;
 
+import Controllers.AkcjaUsunKonto;
 import Controllers.PasswordChangeController;
 import java.awt.Dimension;
 
@@ -84,7 +85,6 @@ public class Menu extends JFrame {
 
 		
 		if(logged){
-		
 		tabbedPane.addTab("Bilans finansowy oferty", new BilansFinasowy());
 		final Rezerwacje rez = new Rezerwacje();
 		tabbedPane.addTab("Panel Zarz¹dzania Rezerwacjami", rez);
@@ -144,11 +144,7 @@ public class Menu extends JFrame {
 		contentPane.add(btnZmieHaso);
 
 		 btnUsuKonto = new JButton("Usu\u0144 konto");
-		btnUsuKonto.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				UsunKonto();
-			}
-		});
+		btnUsuKonto.addActionListener(new AkcjaUsunKonto(getMenuView()));
 		btnUsuKonto.setBounds(578, 11, 110, 23);
 		contentPane.add(btnUsuKonto);
 
@@ -170,7 +166,7 @@ public class Menu extends JFrame {
 		register.setVisible(true);
 	}
 
-	private void Logowanie() {
+	public void Logowanie() {
 		logView.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		logView.clearLoggingData();
 		logView.setVisible(true);
@@ -194,20 +190,25 @@ public class Menu extends JFrame {
 		new PasswordChangeController(new ZmianaHasla(), lblStan.getText());
 	}
 
-	private void UsunKonto() {
-		// if(zalogowany){
-		// Usun();
-
-		// }
-	}
-
 	public void setLogView(Logowanie log) {
 		this.logView = log;
 	}
+        
+        public Menu getMenuView() {
+            return this;
+        }
 
 	public void setLoginAsLabel(String login) {
 		lblStan.setText(login);
 	}
+        
+        public String getLogin() {
+            return lblStan.getText();
+        }
+        
+        public void setDeleteButtonListener(ActionListener l) {
+            btnUsuKonto.addActionListener(l);
+        }
 	  public void UstawMenu(int dostep)
       {
       	switch(dostep)
