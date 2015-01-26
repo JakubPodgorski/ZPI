@@ -12,16 +12,20 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
+import java.util.Calendar;
 import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 
 import javax.swing.SwingConstants;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 
 import Utils.DataBaseConnector;
 import Utils.Constants;
@@ -36,7 +40,9 @@ public class BilansFinasowy extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JTable table;
-	Object rowDATAA[][] = new Object[25][9];
+	Object rowDATAA[][] = new Object[15][9];
+	private JDatePickerImpl datePickerFrom;
+	private JDatePickerImpl datePickerTo;
 
 	/**
 	 * Create the panel.
@@ -56,16 +62,30 @@ public class BilansFinasowy extends JPanel {
 		label_1.setBounds(558, 300, 75, 56);
 		add(label_1);
 
+		Date date = new Date();
+
 		UtilDateModel modelFrom = new UtilDateModel();
+
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		cal.add(Calendar.DATE, -31);
+		Date dateMinus31Days = cal.getTime();
+
+		modelFrom.setDate(dateMinus31Days.getYear() + 1900,
+				dateMinus31Days.getMonth(), dateMinus31Days.getDate());
+		modelFrom.setSelected(true);
 		JDatePanelImpl datePanelFrom = new JDatePanelImpl(modelFrom);
-		final JDatePickerImpl datePickerFrom = new JDatePickerImpl(
-				datePanelFrom);
+		datePickerFrom = new JDatePickerImpl(datePanelFrom);
 		datePickerFrom.setBounds(141, 319, 115, 20);
 		add(datePickerFrom);
 
 		UtilDateModel modelTo = new UtilDateModel();
+		modelTo.setDate(date.getYear() + 1900, date.getMonth(), date.getDate());
+		modelTo.setSelected(true);
+
 		JDatePanelImpl datePanelTo = new JDatePanelImpl(modelTo);
-		final JDatePickerImpl datePickerTo = new JDatePickerImpl(datePanelTo);
+
+		datePickerTo = new JDatePickerImpl(datePanelTo);
 		datePickerTo.setBounds(293, 319, 115, 20);
 		add(datePickerTo);
 
@@ -88,13 +108,13 @@ public class BilansFinasowy extends JPanel {
 		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
 		centerRenderer.setHorizontalAlignment(JLabel.CENTER);
 
-		table = new JTable(rowDATAA, Constants.columnNamesBilans){
-		    public boolean isCellEditable(int rowIndex, int colIndex) {
-		        return false;   //Disallow the editing of any cell
-		    }
+		table = new JTable(rowDATAA, Constants.columnNamesBilans) {
+			public boolean isCellEditable(int rowIndex, int colIndex) {
+				return false; // Disallow the editing of any cell
+			}
 		};
 		table.setDefaultRenderer(Object.class, centerRenderer);
-
+		table.setAutoCreateRowSorter(true);
 		table.getColumnModel().getColumn(1).setPreferredWidth(120);
 
 		JScrollPane scrollPane = new JScrollPane(table);
@@ -126,6 +146,7 @@ public class BilansFinasowy extends JPanel {
 						label.setText("Blad polaczenia z baza danych");
 					} else {
 						try {
+							DecimalFormat df = new DecimalFormat("#.00");
 
 							String dateFromString = Parsing
 									.dateToString(dateFrom);
@@ -138,17 +159,47 @@ public class BilansFinasowy extends JPanel {
 							rs = stmt.executeQuery();
 							clearTable();
 
-							long earnings = 0;
+							double earnings = 0;
 							// if (rs == null) {
 							// DataBaseConnector.close(rs, stmt, con);
 							// }
 							int row = 0;
-							while (rs.next()) {
-								earnings += rs.getLong(1) * rs.getLong(2);
-								System.out.println(rs.getLong(1));
-								System.out.println(rs.getLong(2));
-								rowDATAA[row][6] = rs.getLong(1)
-										* rs.getLong(2);
+							while (rs.next() && row < rowDATAA.length) {
+								Connection con3 = null;
+								con3 = DataBaseConnector.getConnection();
+								ResultSet rs3 = null;
+								String stmtStr3 = Constants.SELECT_EARNINGS_WITH_RESERVATION;
+								PreparedStatement stmt3 = null;
+								stmt3 = con3.prepareStatement(stmtStr3);
+								stmt3.setString(1, dateFromString);
+								stmt3.setString(2, dateToString);
+								stmt3.setString(3, rs.getString(3));
+
+								System.out.println(stmt3.toString());
+								rs3 = stmt3.executeQuery();
+								double earnings_temp = 0;
+								int person_count = 0;
+								if (!rs3.isBeforeFirst()) {
+									System.out.println("No data");
+
+									earnings_temp -= rs.getDouble(4) / 10;
+
+								}
+
+								else {
+									while (rs3.next()) {
+										System.out.println("DETECTED"
+												+ rs3.getLong(1));
+
+										earnings_temp += rs3.getLong(1)
+												* rs3.getLong(2);
+										person_count += rs3.getLong(2);
+									}
+
+								}
+								earnings += earnings_temp;
+								rowDATAA[row][5] = person_count;
+								rowDATAA[row][6] = df.format(earnings_temp);
 								row++;
 
 							}
@@ -161,7 +212,7 @@ public class BilansFinasowy extends JPanel {
 
 							}
 
-							label.setText(Long.toString(earnings));
+							label.setText(df.format(earnings));
 
 							String stmtStr2 = Constants.SELECT_OFFERS_TIMESTAMP;
 							PreparedStatement stmt2 = null;
@@ -180,7 +231,7 @@ public class BilansFinasowy extends JPanel {
 							// }
 
 							int rownumber = 0;
-							while (rs2.next()) {
+							while (rs2.next() && rownumber < rowDATAA.length) {
 
 								rowDATAA[rownumber][0] = rs2
 										.getString(Constants.DB_OFFER_ID);
@@ -202,15 +253,11 @@ public class BilansFinasowy extends JPanel {
 										.getString(Constants.DB_COST);
 								rowDATAA[rownumber][4] = rs2
 										.getString(Constants.DB_FINAL_PRICE);
-								rowDATAA[rownumber][5] = rs2
-										.getString(Constants.DB_PERSON_COUNT);
-								rowDATAA[rownumber][5] = rs2
-										.getString(Constants.DB_PERSON_COUNT);
+
 								rownumber++;
 
 							}
-							// DataBaseConnector.close(rs, stmt, con);
-
+							//
 							table.repaint();
 
 						} catch (SQLException e1) {

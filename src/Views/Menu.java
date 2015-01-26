@@ -87,7 +87,7 @@ public class Menu extends JFrame {
 		
 		tabbedPane.addTab("Bilans finansowy oferty", new BilansFinasowy());
 		final Rezerwacje rez = new Rezerwacje();
-		tabbedPane.addTab("Panel Zarz¹dzania Rezerwacjami", rez);
+		tabbedPane.addTab("Panel Zarz\u0105dzania Rezerwacjami", rez);
 
 		final OpisOferty offerInfo = new OpisOferty();
 		tabbedPane.addTab("Nadzorowanie ofertami", offerInfo);
@@ -109,7 +109,7 @@ public class Menu extends JFrame {
 		else{
 			
 			tabbedPane.addTab("Bilans finansowy oferty", new JPanel());
-			tabbedPane.addTab("Panel Zarz¹dzania Rezerwacjami", new JPanel());
+			tabbedPane.addTab("Panel Zarz\u0105dzania Rezerwacjami", new JPanel());
 			tabbedPane.addTab("Nadzorowanie ofertami", new JPanel());
 		}
 
