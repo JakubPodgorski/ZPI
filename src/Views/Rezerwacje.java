@@ -32,14 +32,14 @@ class Status
 	 Status(){
 	 statusy = new HashMap<Integer,String>();
 	 statusy.put(1, "W realizacji");
-	 statusy.put(2, "Nie op³acone");
-	 statusy.put(3, "Op³acone");
+	 statusy.put(2, "Nie op\u0142acone");
+	 statusy.put(3, "Op\u0142acone");
 	 }
 public int getValue(String text)
 {
 	if(text.equals("W realizacji")) return 1;
-	else if(text.equals("Nie op³acone")) return 2;
-	else if(text.equals("Op³acone")) return 3;
+	else if(text.equals("Nie op\u0142acone")) return 2;
+	else if(text.equals("Op\u0142acone")) return 3;
 	
 	else return -1;
 	
@@ -117,7 +117,7 @@ public class Rezerwacje extends JPanel {
 		ResultSet rs = null;
 		con = DataBaseConnector.getConnection();
 		if(con==null){
-			 JOptionPane.showMessageDialog(null, "B³¹d po³¹czenia z baz¹ danych");
+			 JOptionPane.showMessageDialog(null, "B\u0142¹d po\u0142¹czenia z baz\u0105 danych");
 		}
 		else{
 	
@@ -185,7 +185,7 @@ public class Rezerwacje extends JPanel {
 			
 			if(status != 1 )
 			{
-				JOptionPane.showMessageDialog(null, "Rezerwacja ju¿ zaakceptowana!");
+				JOptionPane.showMessageDialog(null, "Rezerwacja ju\u017C zaakceptowana!");
 				return;
 				
 			}
@@ -210,7 +210,7 @@ public class Rezerwacje extends JPanel {
 			
 			if(status != 2 )
 			{
-				JOptionPane.showMessageDialog(null, "Rezerwacja ju¿ op³acona lub nie zaakceptowana!");
+				JOptionPane.showMessageDialog(null, "Rezerwacja ju\u017C op\u0142acona lub nie zaakceptowana!");
 				return;
 				
 			}
@@ -227,7 +227,7 @@ public class Rezerwacje extends JPanel {
 	CallableStatement stmt = null;
 	Connection	con = DataBaseConnector.getConnection();
 	if(con==null){
-		 JOptionPane.showMessageDialog(null, "B³¹d po³¹czenia z baz¹ danych");
+		 JOptionPane.showMessageDialog(null, "B\u0142\u0105d po\u0142\u0105czenia z baz\u0105 danych");
 	}
 	else{
 
@@ -271,7 +271,7 @@ public class Rezerwacje extends JPanel {
 			CallableStatement stmt = null;
 			Connection	con = DataBaseConnector.getConnection();
 			if(con==null){
-				 JOptionPane.showMessageDialog(null, "B³¹d po³¹czenia z baz¹ danych");
+				 JOptionPane.showMessageDialog(null, "B\u0142\u0105d po\u0142\u0105czenia z baz\u0105 danych");
 			}
 			else{
 

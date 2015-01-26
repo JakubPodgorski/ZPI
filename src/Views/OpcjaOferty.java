@@ -232,16 +232,16 @@ public class OpcjaOferty extends JFrame {
 			
 			if(ID==null || ID.isEmpty()){
 				JOptionPane.showMessageDialog(null,
-						"B³¹d pobierania ID opisu oferty, skontaktuj siê z dostawc¹ aplikacji");
+						"B\u0142¹d pobierania ID opisu oferty, skontaktuj siê z dostawc\u0105 aplikacji");
 			}
 			
 			else if(dateFrom==null || dateTo==null || price==null || price.isEmpty() ||final_price==null || final_price.isEmpty() || person_count==null || person_count.isEmpty()){
 				JOptionPane.showMessageDialog(null,
-						"Uzupe³nij wszystkie dane");
+						"Uzupe\u0142nij wszystkie dane");
 			}
 			else if (con == null) {
 				JOptionPane.showMessageDialog(null,
-						"B³¹d po³¹czenia z baz¹ danych");
+						"B\u0142¹d po\u0142\u0105czenia z baz\u0105 danych");
 			} else {
 
 

@@ -101,7 +101,7 @@ public class DodawanieOferty extends JFrame {
 		textField_2.setColumns(10);
 		
 		
-		JLabel lblLink = new JLabel("Zdjêcie:");
+		JLabel lblLink = new JLabel("Zdj\u0119cie:");
 		lblLink.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblLink.setBounds(55, 188, 46, 14);
 		contentPane.add(lblLink);
@@ -148,11 +148,11 @@ public class DodawanieOferty extends JFrame {
 			
 			if(title==null || title.isEmpty() ||description==null || description.isEmpty() || country==null || country.isEmpty() || city==null || city.isEmpty() || link==null || link.isEmpty() ){
 				JOptionPane.showMessageDialog(null,
-						"Uzupe³nij wszystkie dane");
+						"Uzupe\u0142nij wszystkie dane");
 			}
 			else if (con == null) {
 				JOptionPane.showMessageDialog(null,
-						"B³¹d po³¹czenia z baz¹ danych");
+						"B\u0142¹d po³¹czenia z baz¹ danych");
 			} else {
 
 

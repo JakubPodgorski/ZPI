@@ -165,7 +165,7 @@ public class OpisOferty extends JPanel {
 				// System.out.println("CONF"+ confirmation);
 
 				if (JOptionPane.showConfirmDialog(null,
-						"Czy na pewno chcesz usun¹æ tê ofertê?") == 0) {
+						"Czy na pewno chcesz usun\u0105\u0107 t\u0119 ofert\u0119?") == 0) {
 					try {
 						stmt = con
 								.prepareCall("{?= call OFERTA_USUN_OPCJE (?)}");
