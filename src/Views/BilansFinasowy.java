@@ -180,17 +180,11 @@ public class BilansFinasowy extends JPanel {
 								double earnings_temp = 0;
 								int person_count = 0;
 								if (!rs3.isBeforeFirst()) {
-									System.out.println("No data");
-
 									earnings_temp -= rs.getDouble(4) / 10;
-
 								}
 
 								else {
 									while (rs3.next()) {
-										System.out.println("DETECTED"
-												+ rs3.getLong(1));
-
 										earnings_temp += rs3.getLong(1)
 												* rs3.getLong(2);
 										person_count += rs3.getLong(2);

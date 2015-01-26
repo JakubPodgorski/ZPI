@@ -224,10 +224,8 @@ public class OpcjaOferty extends JFrame {
 		String price = textField_2.getText();
 		String final_price = textField_3.getText();
 		String person_count = textField_4.getText();
-		String comments = textArea.getText();
-		
-		System.out.println(price+final_price+person_count+comments);
-	
+		String comments = textArea.getText();		
+
 			CallableStatement stmt = null;
 			Connection con = DataBaseConnector.getConnection();
 			
@@ -266,16 +264,6 @@ public class OpcjaOferty extends JFrame {
 						stmt.setString(7, person_count);
 						stmt.setString(8, comments);
 						
-System.out.println(ID);
-System.out.println(dateFromString);
-System.out.println(dateToString);
-System.out.println(price);
-System.out.println(final_price);
-System.out.println(person_count);
-System.out.println(comments);
-System.out.println(ID);
-System.out.println(ID);
-
 
 						stmt.execute();
 						int retVal = stmt.getInt(1);
@@ -334,10 +322,7 @@ OpisOferty.fillTable();
 				model.removeAllElements();
 				comboBox.repaint();				System.out.println(stmt.toString());
 				rs = stmt.executeQuery();
-				clearTable();
-
-				System.out.println("LECE BO CHCE");
-				
+				clearTable();				
 				// if (rs == null) {
 				// DataBaseConnector.close(rs, stmt, con);
 				// }

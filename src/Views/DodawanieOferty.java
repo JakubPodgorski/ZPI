@@ -141,10 +141,8 @@ public class DodawanieOferty extends JFrame {
 		String description = textArea.getText();
 		String country = textField_1.getText();
 		String city = textField_2.getText();
-		String link = textField_3.getText();
-		
-		System.out.println(title+description+country+city);
-	
+		String link = textField_3.getText();	
+
 			CallableStatement stmt = null;
 			Connection con = DataBaseConnector.getConnection();
 			

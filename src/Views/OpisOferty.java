@@ -113,9 +113,7 @@ public class OpisOferty extends JPanel {
 				while (rs.next()) {
 					rowDATAA[row][0] = rs.getString(Constants.DB_OFFER_ID);
 					rowDATAA[row][1] = rs.getString(Constants.DB_TITLE);
-					
-					System.out.println(rs.getString(Constants.DB_TITLE));
-					
+									
 					rowDATAA[row][2] = rs.getString(Constants.DB_DESCRIPTION);
 					rowDATAA[row][3] = rs.getString(Constants.DB_COUNTRY);
 					rowDATAA[row][4] = rs.getString(Constants.DB_CITY);
@@ -124,8 +122,6 @@ public class OpisOferty extends JPanel {
 					rowDATAA[row][7] = rs.getString(Constants.DB_MARK);
 					idTable[row] = rs.getString(Constants.DB_ID);
 					row++;
-
-					System.out.println(row);
 
 				}
 				// DataBaseConnector.close(rs, stmt, con);
@@ -176,8 +172,6 @@ public class OpisOferty extends JPanel {
 						stmt.registerOutParameter(1, Types.INTEGER);
 
 						stmt.setString(2, idTable[rowId]);
-
-						System.out.println(idTable[rowId]);
 
 						stmt.execute();
 						int retVal = stmt.getInt(1);
