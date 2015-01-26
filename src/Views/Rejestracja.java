@@ -79,7 +79,7 @@ public class Rejestracja extends JFrame {
 		panel.setBounds(10, 98, 306, 128);
 		contentPane.add(panel);
 		
-		panel.setBorder(BorderFactory.createTitledBorder("Dane u¿ytkownika"));
+		panel.setBorder(BorderFactory.createTitledBorder("Dane u\u017Cytkownika"));
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Login:");
@@ -176,7 +176,7 @@ public class Rejestracja extends JFrame {
 		lblIstniejeUser.setText("");
 		if(!txHaslo.getText().equals(txHaslo2.getText()))
 		{
-			lblIstniejeUser.setText("Wprowadzone has³a s¹ ró¿ne");
+			lblIstniejeUser.setText("Wprowadzone has\u0142a s\u0105 r\u00F3\u017Cne");
 			txHaslo2.setText("");
 			txHaslo2.setFont(txHaslo2.getFont());
 			return;
@@ -188,7 +188,7 @@ public class Rejestracja extends JFrame {
 			CallableStatement stmt = null;
 			Connection	con = DataBaseConnector.getConnection();
 			if(con==null){
-				 JOptionPane.showMessageDialog(null, "B³¹d po³¹czenia z baz¹ danych");
+				 JOptionPane.showMessageDialog(null, "B\u0142\u0105d po\u0142\u0105czenia z baz\u0105 danych");
 			}
 			else{
 
@@ -215,11 +215,11 @@ public class Rejestracja extends JFrame {
 					
 					 if(retVal == -1)
 					 {
-						 lblIstniejeUser.setText("Podany login jest zajêty!");
+						 lblIstniejeUser.setText("Podany login jest zaj\u0119ty!");
 					 
 					 }
 					 else
-						 JOptionPane.showMessageDialog(null, "Dodano u¿ytkownika o loginie: " + login);
+						 JOptionPane.showMessageDialog(null, "Dodano u\u017Cytkownika o loginie: " + login);
 		
 				}
 				catch (SQLException e1) {

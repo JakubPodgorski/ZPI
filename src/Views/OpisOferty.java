@@ -157,10 +157,10 @@ public class OpisOferty extends JPanel {
 			Connection con = DataBaseConnector.getConnection();
 			if (con == null) {
 				JOptionPane.showMessageDialog(null,
-						"B³¹d po³¹czenia z baz¹ danych");
+						"B\u0142\u0105d po\u0142\u0105czenia z baz\u0105 danych");
 			} else {
 				// int confirmation = JOptionPane.showConfirmDialog(null,
-				// "Czy na pewno chcesz usun¹æ t¹ ofertê?");
+				// "Czy na pewno chcesz usun\u0105\u0107 t\u0105 ofert\u0119?");
 
 				// System.out.println("CONF"+ confirmation);
 
@@ -179,7 +179,7 @@ public class OpisOferty extends JPanel {
 							System.out.println("Usunieto rezerwacje " + retVal);
 
 							JOptionPane.showMessageDialog(null,
-									"Usunieto ofertê");
+									"Usunieto ofert\u0119");
 							fillTable();
 							table.repaint();
 						}

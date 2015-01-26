@@ -232,7 +232,7 @@ public class OpcjaOferty extends JFrame {
 			
 			if(ID==null || ID.isEmpty()){
 				JOptionPane.showMessageDialog(null,
-						"B\u0142¹d pobierania ID opisu oferty, skontaktuj siê z dostawc\u0105 aplikacji");
+						"B\u0142\u0105d pobierania ID opisu oferty, skontaktuj si\u0119 z dostawc\u0105 aplikacji");
 			}
 			
 			else if(dateFrom==null || dateTo==null || price==null || price.isEmpty() ||final_price==null || final_price.isEmpty() || person_count==null || person_count.isEmpty()){
@@ -241,7 +241,7 @@ public class OpcjaOferty extends JFrame {
 			}
 			else if (con == null) {
 				JOptionPane.showMessageDialog(null,
-						"B\u0142¹d po\u0142\u0105czenia z baz\u0105 danych");
+						"B\u0142\u0105d po\u0142\u0105czenia z baz\u0105 danych");
 			} else {
 
 
@@ -270,7 +270,7 @@ public class OpcjaOferty extends JFrame {
 						if (retVal != -1) {
 							System.out.println("Dodano opis " + retVal);
 
-							JOptionPane.showMessageDialog(null,"Dodano ofertê.");
+							JOptionPane.showMessageDialog(null,"Dodano ofert\u0119.");
 							OpcjaOferty.setOffers();
 							setVisible(false);
 							dispose();

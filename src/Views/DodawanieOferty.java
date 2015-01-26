@@ -152,7 +152,7 @@ public class DodawanieOferty extends JFrame {
 			}
 			else if (con == null) {
 				JOptionPane.showMessageDialog(null,
-						"B\u0142¹d po³¹czenia z baz¹ danych");
+						"B\u0142\u0105d po\u0142\u0105czenia z baz\u0105 danych");
 			} else {
 
 
