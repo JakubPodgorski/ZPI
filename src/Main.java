@@ -6,7 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 	
-Menu okienko = new Menu();
+Menu okienko = new Menu(false);
 okienko.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 okienko.setVisible(true);
 	}

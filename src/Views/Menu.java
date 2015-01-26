@@ -46,7 +46,7 @@ public class Menu extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Menu() {
+	public Menu(boolean logged) {
 		setTitle("Narz\u0119dzie administracyjne - Biuro podr\u00F3\u017Cy - Tw\u00F3j osobisty asystent");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 900, 473);
@@ -82,6 +82,9 @@ public class Menu extends JFrame {
 		tabbedPane.setBounds(10, 51, 860, 383);
 		contentPane.add(tabbedPane);
 
+		
+		if(logged){
+		
 		tabbedPane.addTab("Bilans finansowy oferty", new BilansFinasowy());
 		final Rezerwacje rez = new Rezerwacje();
 		tabbedPane.addTab("Panel Zarz¹dzania Rezerwacjami", rez);
@@ -102,6 +105,13 @@ public class Menu extends JFrame {
 			}
 
 		});
+		}
+		else{
+			
+			tabbedPane.addTab("Bilans finansowy oferty", new JPanel());
+			tabbedPane.addTab("Panel Zarz¹dzania Rezerwacjami", new JPanel());
+			tabbedPane.addTab("Nadzorowanie ofertami", new JPanel());
+		}
 
 		// tabbedPane.addTab("Historia Klientï¿½w Biura", new Klienci());
 

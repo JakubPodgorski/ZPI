@@ -19,7 +19,7 @@ public class LogController {
 
     Logowanie view;
     Connection connection;
-    Menu m = new Menu();
+    Menu m = new Menu(true);
     
     public static void main(String args[]) {
         Logowanie log = new Logowanie();
