@@ -153,13 +153,13 @@ public class DataBaseConnector {
 		try {
 			if (!connection.isValid(0)) {
 				ConnectionDialog.doInBackground(
-						"Utracono po³¹czenie, trwa ponowne ³¹czenie",
+						"Utracono po\u0142\u0105czenie, trwa ponowne \u0142\u0105czenie",
 						new Callable<Void>() {
 
 							@Override
 							public Void call() throws Exception {
 								try {
-									Logger.getGlobal().info("Utracono Po³¹czenie");
+									Logger.getGlobal().info("Utracono Po\u0142\u0105czenie");
 									while (!DataBaseConnector.connection
 											.isValid(1)) {
 										try {

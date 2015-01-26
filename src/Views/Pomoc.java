@@ -58,7 +58,7 @@ public class Pomoc extends JFrame {
 		lblNewLabel.setBounds(10, 11, 232, 17);
 		panel.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("<html>Na pocz\u0105tku U\u017Cytkownik wybiera opcj\u0119 „rejestracja”. Nast\u0119pnie system wy\u015Bwietla okno z formularzem z polami do wype\u0142nienia: login, has\u0142o, powt\u00F3rz has\u0142o, mail oraz typ konta - stanowisko. Dodatkowo pojawiaj\u0105 si\u0119 dwa przyciski „rejestruj” oraz „anuluj” – w razie ch\u0119ci przerwania procesu rejestracji. Kolejno U\u017Cytkownik wybiera opcje „rejestruj”, a system wy\u015Bwietla komunikat o pomy\u015Blnej rejestracji u\u017Cytkownika je\u015Bli wszystkie wymagania odno\u015Bnie formatu danych zosta\u0142y spe\u0142nione. Finalnie serwer zapisuje dane u\u017Cytkownika w bazie danych, a U\u017Cytkownik zostaje automatycznie zalogowany do systemu</html>");
+		JLabel lblNewLabel_1 = new JLabel("<html>Na pocz\u0105tku U\u017Cytkownik wybiera opcj\u0119 \u201Erejestracja\u201D. Nast\u0119pnie system wy\u015Bwietla okno z formularzem z polami do wype\u0142nienia: login, has\u0142o, powt\u00F3rz has\u0142o, mail oraz typ konta - stanowisko. Dodatkowo pojawiaj\u0105 si\u0119 dwa przyciski \u201Erejestruj\u201D oraz \u201Eanuluj\u201D – w razie ch\u0119ci przerwania procesu rejestracji. Kolejno U\u017Cytkownik wybiera opcje \u201Erejestruj\u201D, a system wy\u015Bwietla komunikat o pomy\u015Blnej rejestracji u\u017Cytkownika je\u015Bli wszystkie wymagania odno\u015Bnie formatu danych zosta\u0142y spe\u0142nione. Finalnie serwer zapisuje dane u\u017Cytkownika w bazie danych, a U\u017Cytkownik zostaje automatycznie zalogowany do systemu</html>");
 		lblNewLabel_1.setBounds(10, 36, 723, 76);
 		panel.add(lblNewLabel_1);
 		
@@ -69,7 +69,7 @@ public class Pomoc extends JFrame {
 		lblNewLabel_2.setBounds(10, 120, 245, 17);
 		panel.add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_3 = new JLabel("<html>U\u017Cytkownik wybiera opcj\u0119 „usu\u0144 konto”. Nast\u0119pnie system wy\u015Bwietla zapytanie o potwierdzenie usuni\u0119cia konta z opcjami „tak” i „nie” - zamykaj\u0105c\u0105 okno wylogowania. Kolejnym krokiem U\u017Cytkownika jest wybranie opcji „tak”. Ostatecznie system wylogowuje u\u017Cytkownika , a serwer usuwa konto u\u017Cytkownika z bazy danych.</html>");
+		JLabel lblNewLabel_3 = new JLabel("<html>U\u017Cytkownik wybiera opcj\u0119 \u201Eusu\u0144 konto\u201D. Nast\u0119pnie system wy\u015Bwietla zapytanie o potwierdzenie usuni\u0119cia konta z opcjami \u201Etak\u201D i \u201Enie\u201D - zamykaj\u0105c\u0105 okno wylogowania. Kolejnym krokiem U\u017Cytkownika jest wybranie opcji \u201Etak\u201D. Ostatecznie system wylogowuje u\u017Cytkownika , a serwer usuwa konto u\u017Cytkownika z bazy danych.</html>");
 		lblNewLabel_3.setBounds(10, 136, 723, 61);
 		panel.add(lblNewLabel_3);
 		
@@ -78,7 +78,7 @@ public class Pomoc extends JFrame {
 		lblNewLabel_4.setBounds(10, 205, 232, 17);
 		panel.add(lblNewLabel_4);
 		
-		JLabel lblNewLabel_5 = new JLabel("<html>Pierwszym krokiem U\u017Cytkownika jest wybranie opcji „logowanie”. Nast\u0119pnie system wy\u015Bwietla formularz z polami login, has\u0142o i mail oraz opcj\u0119 „logowanie”, „resetuj has\u0142o” oraz „anuluj” przerywaj\u0105c\u0105 proces logowania. Kolejno U\u017Cytkownik wprowadza login oraz adres mail w odpowiednie pole formularza oraz wybiera opcj\u0119 „resetuj has\u0142o”. Finalnie system wy\u015Bwietla komunikat o pomy\u015Blnym zresetowaniu has\u0142a dla podanego loginu, a serwer resetuje has\u0142o dla podanego loginu, generuje nowe has\u0142o oraz wysy\u0142a je na maila.</html>");
+		JLabel lblNewLabel_5 = new JLabel("<html>Pierwszym krokiem U\u017Cytkownika jest wybranie opcji \u201Elogowanie\u201D. Nast\u0119pnie system wy\u015Bwietla formularz z polami login, has\u0142o i mail oraz opcj\u0119 \u201Elogowanie\u201D, \u201Eresetuj has\u0142o\u201D oraz \u201Eanuluj\u201D przerywaj\u0105c\u0105 proces logowania. Kolejno U\u017Cytkownik wprowadza login oraz adres mail w odpowiednie pole formularza oraz wybiera opcj\u0119 \u201Eresetuj has\u0142o\u201D. Finalnie system wy\u015Bwietla komunikat o pomy\u015Blnym zresetowaniu has\u0142a dla podanego loginu, a serwer resetuje has\u0142o dla podanego loginu, generuje nowe has\u0142o oraz wysy\u0142a je na maila.</html>");
 		lblNewLabel_5.setBounds(10, 230, 723, 75);
 		panel.add(lblNewLabel_5);
 		
@@ -87,7 +87,7 @@ public class Pomoc extends JFrame {
 		lblNewLabel_6.setBounds(10, 313, 232, 17);
 		panel.add(lblNewLabel_6);
 		
-		JLabel lblNewLabel_7 = new JLabel("<html>Na pocz\u0105tku U\u017Cytkownik wybiera opcj\u0119 „zmie\u0144 has\u0142o”. Nast\u0119pnie system wy\u015Bwietla okno z formularzem z polami  stare has\u0142o, nowe has\u0142o i powt\u00F3rz has\u0142o oraz opcjami „zmie\u0144 has\u0142o” oraz „anuluj” przerywaj\u0105c\u0105 proces zmiany has\u0142a. Kolejno U\u017Cytkownik uzupe\u0142nia dane oraz wybiera opcj\u0119 „zmie\u0144 has\u0142o”, a finalnie serwer weryfikuje has\u0142a i zapisuje je w bazie danych.</html>");
+		JLabel lblNewLabel_7 = new JLabel("<html>Na pocz\u0105tku U\u017Cytkownik wybiera opcj\u0119 \u201Ezmie\u0144 has\u0142o\u201D. Nast\u0119pnie system wy\u015Bwietla okno z formularzem z polami  stare has\u0142o, nowe has\u0142o i powt\u00F3rz has\u0142o oraz opcjami \u201Ezmie\u0144 has\u0142o\u201D oraz \u201Eanuluj\u201D przerywaj\u0105c\u0105 proces zmiany has\u0142a. Kolejno U\u017Cytkownik uzupe\u0142nia dane oraz wybiera opcj\u0119 \u201Ezmie\u0144 has\u0142o\u201D, a finalnie serwer weryfikuje has\u0142a i zapisuje je w bazie danych.</html>");
 		lblNewLabel_7.setBounds(10, 338, 723, 42);
 		panel.add(lblNewLabel_7);
 		
@@ -96,7 +96,7 @@ public class Pomoc extends JFrame {
 		lblNewLabel_8.setBounds(10, 392, 321, 18);
 		panel.add(lblNewLabel_8);
 		
-		JLabel lblNewLabel_9 = new JLabel("<html>U\u017Cytkownik wybiera opcj\u0119 „logowanie”. Nast\u0119pnie system wy\u015Bwietla formularz z polami login, has\u0142o i mail oraz opcj\u0119 „logowanie”, „resetuj has\u0142o” oraz „anuluj” przerywaj\u0105c\u0105 proces logowania. Kolejno U\u017Cytkownik wprowadza login oraz has\u0142o w odpowiednie pole formularza oraz wybiera opcj\u0119 „zaloguj”. Ostatecznie system wy\u015Bwietla komunikat o pomy\u015Blnym zalogowaniu u\u017Cytkownika, natomiast serwer weryfikuje dane u\u017Cytkownika i loguje go do aplikacji.</html>");
+		JLabel lblNewLabel_9 = new JLabel("<html>U\u017Cytkownik wybiera opcj\u0119 \u201Elogowanie\u201D. Nast\u0119pnie system wy\u015Bwietla formularz z polami login, has\u0142o i mail oraz opcj\u0119 \u201Elogowanie\u201D, \u201Eresetuj has\u0142o\u201D oraz \u201Eanuluj\u201D przerywaj\u0105c\u0105 proces logowania. Kolejno U\u017Cytkownik wprowadza login oraz has\u0142o w odpowiednie pole formularza oraz wybiera opcj\u0119 \u201Ezaloguj\u201D. Ostatecznie system wy\u015Bwietla komunikat o pomy\u015Blnym zalogowaniu u\u017Cytkownika, natomiast serwer weryfikuje dane u\u017Cytkownika i loguje go do aplikacji.</html>");
 		lblNewLabel_9.setBounds(10, 417, 723, 61);
 		panel.add(lblNewLabel_9);
 		
@@ -105,7 +105,7 @@ public class Pomoc extends JFrame {
 		lblNewLabel_10.setBounds(10, 489, 321, 18);
 		panel.add(lblNewLabel_10);
 		
-		JLabel lblNewLabel_11 = new JLabel("<html>Pierwszym krokiem U\u017Cytkownika jest wybranie opcji „wylogowanie”. Kolejno system wy\u015Bwietla zapytanie o potwierdzenie wylogowania z opcjami „tak” i „nie” - zamykaj\u0105c\u0105 okno wylogowania. Nast\u0119pnie U\u017Cytkownik wybiera opcj\u0119 „tak”, a system wylogowuje u\u017Cytkownika.</html>");
+		JLabel lblNewLabel_11 = new JLabel("<html>Pierwszym krokiem U\u017Cytkownika jest wybranie opcji \u201Ewylogowanie\u201D. Kolejno system wy\u015Bwietla zapytanie o potwierdzenie wylogowania z opcjami \u201Etak\u201D i \u201Enie\u201D - zamykaj\u0105c\u0105 okno wylogowania. Nast\u0119pnie U\u017Cytkownik wybiera opcj\u0119 \u201Etak\u201D, a system wylogowuje u\u017Cytkownika.</html>");
 		lblNewLabel_11.setBounds(10, 514, 723, 47);
 		panel.add(lblNewLabel_11);
 		
@@ -114,7 +114,7 @@ public class Pomoc extends JFrame {
 		lblNewLabel_12.setBounds(10, 572, 391, 17);
 		panel.add(lblNewLabel_12);
 		
-		JLabel lblNewLabel_13 = new JLabel("<html>Na pocz\u0105tku U\u017Cytkownik wybiera opcj\u0119 „o programie”. Nast\u0119pnie system wy\u015Bwietla logo aplikacji oraz informacje na temat m.in. nazwy projektu i autor\u00F3w oraz danych kontaktowych.</html>");
+		JLabel lblNewLabel_13 = new JLabel("<html>Na pocz\u0105tku U\u017Cytkownik wybiera opcj\u0119 \u201Eo programie\u201D. Nast\u0119pnie system wy\u015Bwietla logo aplikacji oraz informacje na temat m.in. nazwy projektu i autor\u00F3w oraz danych kontaktowych.</html>");
 		lblNewLabel_13.setBounds(10, 597, 723, 42);
 		panel.add(lblNewLabel_13);
 		
@@ -123,7 +123,7 @@ public class Pomoc extends JFrame {
 		lblNewLabel_14.setBounds(10, 643, 424, 17);
 		panel.add(lblNewLabel_14);
 		
-		JLabel lblNewLabel_15 = new JLabel("<html>Pierwszym krokiem U\u017Cytkownika jest wybranie opcji „bilans finansowy ofert”. Kolejno system wy\u015Bwietla zak\u0142adk\u0119 z tabel\u0105 zawieraj\u0105c\u0105 dane ofert, ich koszt oraz cen\u0119 z ostatniego miesi\u0105ca wraz z bilansem dla tych ofert oraz pola „od” i „do” ograniczaj\u0105ce wy\u015Bwietlane oferty po wybraniu opcji „wylicz bilans”. Nast\u0119pnie U\u017Cytkownik definiuje zakres wy\u015Bwietlanych ofert w polach „od” i „do” oraz wybiera opcj\u0119 „wylicz bilans”, a system ostatecznie zwraca list\u0119 ofert z podanego terminu wraz z obliczonym dla nich bilansem finansowym. U\u017Cytkownik uzyskuje mo\u017Cliwo\u015B\u0107 sortowania wy\u015Bwietlanej listy wed\u0142ug swoich upodoba\u0144.</html>");
+		JLabel lblNewLabel_15 = new JLabel("<html>Pierwszym krokiem U\u017Cytkownika jest wybranie opcji \u201Ebilans finansowy ofert\u201D. Kolejno system wy\u015Bwietla zak\u0142adk\u0119 z tabel\u0105 zawieraj\u0105c\u0105 dane ofert, ich koszt oraz cen\u0119 z ostatniego miesi\u0105ca wraz z bilansem dla tych ofert oraz pola \u201Eod\u201D i \u201Edo\u201D ograniczaj\u0105ce wy\u015Bwietlane oferty po wybraniu opcji \u201Ewylicz bilans\u201D. Nast\u0119pnie U\u017Cytkownik definiuje zakres wy\u015Bwietlanych ofert w polach \u201Eod\u201D i \u201Edo\u201D oraz wybiera opcj\u0119 \u201Ewylicz bilans\u201D, a system ostatecznie zwraca list\u0119 ofert z podanego terminu wraz z obliczonym dla nich bilansem finansowym. U\u017Cytkownik uzyskuje mo\u017Cliwo\u015B\u0107 sortowania wy\u015Bwietlanej listy wed\u0142ug swoich upodoba\u0144.</html>");
 		lblNewLabel_15.setBounds(10, 668, 723, 69);
 		panel.add(lblNewLabel_15);
 		
@@ -132,7 +132,7 @@ public class Pomoc extends JFrame {
 		lblNewLabel_16.setBounds(10, 748, 294, 18);
 		panel.add(lblNewLabel_16);
 		
-		JLabel lblNewLabel_17 = new JLabel("<html>U\u017Cytkownik wybiera opcj\u0119 „nadzorowanie ofertami”. Kolejno system wy\u015Bwietla zak\u0142adk\u0119 z tabel\u0105 zawieraj\u0105c\u0105 dane ofert wraz z trzema opcjami „dodaj now\u0105 ofert\u0119”, „zmie\u0144 zaznaczon\u0105 ofert\u0119”, „usu\u0144 zaznaczon\u0105 ofert\u0119”. Nast\u0119pnie U\u017Cytkownik wybiera opcj\u0119 „dodaj now\u0105 ofert\u0119”, a system otwiera nowe okno z formularzem zawieraj\u0105cym pola na zdj\u0119cie oferty, kraj, miasto, nazw\u0119 hotelu, termin, pok\u00F3j, liczb\u0119 os\u00F3b, cen\u0119 i koszt oraz opcj\u0119 „dodaj”. Ostatecznie U\u017Cytkownik uzupe\u0142nia podane pola, a nast\u0119pnie wybiera opcj\u0119 „dodaj”. Finalnie system wy\u015Bwietla komunikat o poprawnym dodaniu oferty, natomiast serwer od\u015Bwie\u017Ca list\u0119 ofert w aplikacji desktopowej oraz webowej.</html>");
+		JLabel lblNewLabel_17 = new JLabel("<html>U\u017Cytkownik wybiera opcj\u0119 \u201Enadzorowanie ofertami\u201D. Kolejno system wy\u015Bwietla zak\u0142adk\u0119 z tabel\u0105 zawieraj\u0105c\u0105 dane ofert wraz z trzema opcjami \u201Edodaj now\u0105 ofert\u0119\u201D, \u201Ezmie\u0144 zaznaczon\u0105 ofert\u0119\u201D, \u201Eusu\u0144 zaznaczon\u0105 ofert\u0119\u201D. Nast\u0119pnie U\u017Cytkownik wybiera opcj\u0119 \u201Edodaj now\u0105 ofert\u0119\u201D, a system otwiera nowe okno z formularzem zawieraj\u0105cym pola na zdj\u0119cie oferty, kraj, miasto, nazw\u0119 hotelu, termin, pok\u00F3j, liczb\u0119 os\u00F3b, cen\u0119 i koszt oraz opcj\u0119 \u201Edodaj\u201D. Ostatecznie U\u017Cytkownik uzupe\u0142nia podane pola, a nast\u0119pnie wybiera opcj\u0119 \u201Edodaj\u201D. Finalnie system wy\u015Bwietla komunikat o poprawnym dodaniu oferty, natomiast serwer od\u015Bwie\u017Ca list\u0119 ofert w aplikacji desktopowej oraz webowej.</html>");
 		lblNewLabel_17.setBounds(10, 773, 723, 92);
 		panel.add(lblNewLabel_17);
 		
@@ -141,7 +141,7 @@ public class Pomoc extends JFrame {
 		lblNewLabel_18.setBounds(10, 876, 294, 17);
 		panel.add(lblNewLabel_18);
 		
-		JLabel lblNewLabel_19 = new JLabel("<html>U\u017Cytkownik wybiera opcj\u0119 „panel zarz\u0105dzania rezerwacjami”. Nast\u0119pnie system wy\u015Bwietla zak\u0142adk\u0119 z tabel\u0105 zawieraj\u0105c\u0105 dane rezerwacji wraz z czterema opcjami „zaakceptuj rezerwacje”, „zmie\u0144 rezerwacje”, „rezerwacja op\u0142acona” oraz „usu\u0144 rezerwacj\u0119”. Finalnie U\u017Cytkownik uzyskuje mo\u017Cliwo\u015B\u0107 sortowania wy\u015Bwietlanej listy wed\u0142ug swoich upodoba\u0144.</html>");
+		JLabel lblNewLabel_19 = new JLabel("<html>U\u017Cytkownik wybiera opcj\u0119 \u201Epanel zarz\u0105dzania rezerwacjami\u201D. Nast\u0119pnie system wy\u015Bwietla zak\u0142adk\u0119 z tabel\u0105 zawieraj\u0105c\u0105 dane rezerwacji wraz z czterema opcjami \u201Ezaakceptuj rezerwacje\u201D, \u201Ezmie\u0144 rezerwacje\u201D, \u201Erezerwacja op\u0142acona\u201D oraz \u201Eusu\u0144 rezerwacj\u0119\u201D. Finalnie U\u017Cytkownik uzyskuje mo\u017Cliwo\u015B\u0107 sortowania wy\u015Bwietlanej listy wed\u0142ug swoich upodoba\u0144.</html>");
 		lblNewLabel_19.setBounds(10, 901, 723, 61);
 		panel.add(lblNewLabel_19);
 		
@@ -150,7 +150,7 @@ public class Pomoc extends JFrame {
 		lblNewLabel_20.setBounds(10, 973, 260, 17);
 		panel.add(lblNewLabel_20);
 		
-		JLabel lblNewLabel_21 = new JLabel("<html>U\u017Cytkownik wybiera opcj\u0119 „panel zarz\u0105dzania rezerwacjami”. Nast\u0119pnie system wy\u015Bwietla zak\u0142adk\u0119 z tabel\u0105 zawieraj\u0105c\u0105 dane rezerwacji wraz z czterema opcjami „zaakceptuj rezerwacje”, „zmie\u0144 rezerwacje”, „rezerwacja op\u0142acona” oraz „usu\u0144 rezerwacj\u0119”. Kolejno U\u017Cytkownik sortuje wy\u015Bwietlan\u0105 list\u0119 wed\u0142ug swoich upodoba\u0144, , wybiera jedn\u0105 z rezerwacji oraz wybiera opcj\u0119 „zaakceptuj rezerwacje”. Finalnie system wy\u015Bwietla komunikat o poprawnej zmianie statusu rezerwacji na zaakceptowan\u0105, natomiast serwer od\u015Bwie\u017Ca list\u0119 rezerwacji w aplikacji desktopowej oraz wysy\u0142a wiadomo\u015B\u0107 mailow\u0105 </html>");
+		JLabel lblNewLabel_21 = new JLabel("<html>U\u017Cytkownik wybiera opcj\u0119 \u201Epanel zarz\u0105dzania rezerwacjami\u201D. Nast\u0119pnie system wy\u015Bwietla zak\u0142adk\u0119 z tabel\u0105 zawieraj\u0105c\u0105 dane rezerwacji wraz z czterema opcjami \u201Ezaakceptuj rezerwacje\u201D, \u201Ezmie\u0144 rezerwacje\u201D, \u201Erezerwacja op\u0142acona\u201D oraz \u201Eusu\u0144 rezerwacj\u0119\u201D. Kolejno U\u017Cytkownik sortuje wy\u015Bwietlan\u0105 list\u0119 wed\u0142ug swoich upodoba\u0144, , wybiera jedn\u0105 z rezerwacji oraz wybiera opcj\u0119 \u201Ezaakceptuj rezerwacje\u201D. Finalnie system wy\u015Bwietla komunikat o poprawnej zmianie statusu rezerwacji na zaakceptowan\u0105, natomiast serwer od\u015Bwie\u017Ca list\u0119 rezerwacji w aplikacji desktopowej oraz wysy\u0142a wiadomo\u015B\u0107 mailow\u0105 </html>");
 		lblNewLabel_21.setBounds(10, 996, 723, 118);
 		
 		panel.add(lblNewLabel_21);
@@ -160,7 +160,7 @@ public class Pomoc extends JFrame {
 		lblNewLabel_22.setBounds(10, 1120, 290, 17);
 		panel.add(lblNewLabel_22);
 		
-		JLabel lblNewLabel_23 = new JLabel("<html>Pierwszym krokiem U\u017Cytkownika jest wybranie opcji „panel zarz\u0105dzania rezerwacjami”. Kolejno system wy\u015Bwietla zak\u0142adk\u0119 z tabel\u0105 zawieraj\u0105c\u0105 dane rezerwacji wraz z czterema opcjami „zaakceptuj rezerwacje”, „zmie\u0144 rezerwacje”, „rezerwacja op\u0142acona” oraz „usu\u0144 rezerwacj\u0119”. Nast\u0119pnie U\u017Cytkownik sortuje wy\u015Bwietlan\u0105 list\u0119 wed\u0142ug swoich upodoba\u0144, , wybiera jedn\u0105 z rezerwacji oraz wybiera opcj\u0119 „rezerwacja op\u0142acona”. Ostatecznie system wy\u015Bwietla komunikat o poprawnej zmianie statusu rezerwacji na op\u0142acony, natomiast serwer od\u015Bwie\u017Ca list\u0119 rezerwacji w aplikacji desktopowej oraz wysy\u0142a wiadomo\u015B\u0107 mailow\u0105 do klienta na jego skrzynk\u0119 pocztow\u0105 o potwierdzeniu op\u0142acenia rezerwacji.</html>");
+		JLabel lblNewLabel_23 = new JLabel("<html>Pierwszym krokiem U\u017Cytkownika jest wybranie opcji \u201Epanel zarz\u0105dzania rezerwacjami\u201D. Kolejno system wy\u015Bwietla zak\u0142adk\u0119 z tabel\u0105 zawieraj\u0105c\u0105 dane rezerwacji wraz z czterema opcjami \u201Ezaakceptuj rezerwacje\u201D, \u201Ezmie\u0144 rezerwacje\u201D, \u201Erezerwacja op\u0142acona\u201D oraz \u201Eusu\u0144 rezerwacj\u0119\u201D. Nast\u0119pnie U\u017Cytkownik sortuje wy\u015Bwietlan\u0105 list\u0119 wed\u0142ug swoich upodoba\u0144, , wybiera jedn\u0105 z rezerwacji oraz wybiera opcj\u0119 \u201Erezerwacja op\u0142acona\u201D. Ostatecznie system wy\u015Bwietla komunikat o poprawnej zmianie statusu rezerwacji na op\u0142acony, natomiast serwer od\u015Bwie\u017Ca list\u0119 rezerwacji w aplikacji desktopowej oraz wysy\u0142a wiadomo\u015B\u0107 mailow\u0105 do klienta na jego skrzynk\u0119 pocztow\u0105 o potwierdzeniu op\u0142acenia rezerwacji.</html>");
 		lblNewLabel_23.setBounds(10, 1143, 723, 118);
 		
 		panel.add(lblNewLabel_23);
