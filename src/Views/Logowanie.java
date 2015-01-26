@@ -78,16 +78,20 @@ public class Logowanie extends JFrame {
 		contentPane.add(lblHaso);
 		
 		btnZaloguj = new JButton("Zaloguj");
-		btnZaloguj.setBounds(25, 136, 110, 23);
+		btnZaloguj.setBounds(58, 136, 110, 23);
 		contentPane.add(btnZaloguj);
 		
 		JButton btnAnuluj = new JButton("Anuluj");
-		btnAnuluj.setBounds(140, 136, 110, 23);
+		btnAnuluj.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				setVisible(false);
+				dispose();
+				
+			}
+		});
+		btnAnuluj.setBounds(191, 136, 110, 23);
 		contentPane.add(btnAnuluj);
-		
-		JButton btnZresetujHaso = new JButton("Zresetuj has\u0142o");
-		btnZresetujHaso.setBounds(255, 136, 115, 23);
-		contentPane.add(btnZresetujHaso);
 		
 		lblNiepoprawneHaslo = new JLabel("");
 		lblNiepoprawneHaslo.setBounds(255, 69, 46, 14);

@@ -1,7 +1,9 @@
 package Views;
 
 import Controllers.AkcjaUsunKonto;
+import Controllers.LogController;
 import Controllers.PasswordChangeController;
+
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
@@ -34,6 +36,7 @@ public class Menu extends JFrame {
 	JButton btnUsuKonto;
 	JButton btnZmieHaso;
 	JButton btnRejestracja;
+	private boolean czyZalogowany;
 
 	/**
 	 * Launch the application.
@@ -48,6 +51,7 @@ public class Menu extends JFrame {
 	 * Create the frame.
 	 */
 	public Menu(boolean logged) {
+		czyZalogowany = logged;
 		setTitle("Narz\u0119dzie administracyjne - Biuro podr\u00F3\u017Cy - Tw\u00F3j osobisty asystent");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 900, 473);
@@ -84,37 +88,6 @@ public class Menu extends JFrame {
 		contentPane.add(tabbedPane);
 
 		
-		if(logged){
-		tabbedPane.addTab("Bilans finansowy oferty", new BilansFinasowy());
-		final Rezerwacje rez = new Rezerwacje();
-		tabbedPane.addTab("Panel Zarz\u0105dzania Rezerwacjami", rez);
-
-		final OpisOferty offerInfo = new OpisOferty();
-		tabbedPane.addTab("Nadzorowanie ofertami", offerInfo);
-
-		tabbedPane.addChangeListener(new ChangeListener() {
-			public void stateChanged(ChangeEvent evt) {
-				JTabbedPane tbPane = (JTabbedPane) evt.getSource();
-				if (tbPane.getSelectedIndex() == 1) {
-					rez.WyszukajRezerwacje();
-				}
-				if (tbPane.getSelectedIndex() == 2) {
-					offerInfo.fillTable();
-				}
-
-			}
-
-		});
-		}
-		else{
-			
-			tabbedPane.addTab("Bilans finansowy oferty", new JPanel());
-			tabbedPane.addTab("Panel Zarz\u0105dzania Rezerwacjami", new JPanel());
-			tabbedPane.addTab("Nadzorowanie ofertami", new JPanel());
-		}
-
-		// tabbedPane.addTab("Historia Klientï¿½w Biura", new Klienci());
-
 		JButton btnPomoc = new JButton("Pomoc");
 		btnPomoc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -158,6 +131,47 @@ public class Menu extends JFrame {
 		lblStan.setForeground(new Color(0, 0, 204));
 		lblStan.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		box.add(lblStan);
+		
+		
+		if(logged){
+		tabbedPane.addTab("Bilans finansowy oferty", new BilansFinasowy());
+		final Rezerwacje rez = new Rezerwacje();
+		tabbedPane.addTab("Panel Zarz\u0105dzania Rezerwacjami", rez);
+
+		final OpisOferty offerInfo = new OpisOferty();
+		tabbedPane.addTab("Nadzorowanie ofertami", offerInfo);
+
+		tabbedPane.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent evt) {
+				JTabbedPane tbPane = (JTabbedPane) evt.getSource();
+				if (tbPane.getSelectedIndex() == 1) {
+					rez.WyszukajRezerwacje();
+				}
+				if (tbPane.getSelectedIndex() == 2) {
+					offerInfo.fillTable();
+				}
+
+			}
+
+		});
+		}
+		else{
+			btnNewButton.setText("Zaloguj");
+			tabbedPane.addTab("Bilans finansowy oferty", new JPanel());
+			tabbedPane.addTab("Panel Zarz\u0105dzania Rezerwacjami", new JPanel());
+			tabbedPane.addTab("Nadzorowanie ofertami", new JPanel());
+			
+			
+			//tabbedPane.setVisible(false);
+      		btnRejestracja.setVisible(false);
+              btnZmieHaso.setVisible(false);
+              btnUsuKonto.setVisible(false);
+			
+		}
+
+		// tabbedPane.addTab("Historia Klientï¿½w Biura", new Klienci());
+
+	
 	}
 
 	private void RejestrujUsera() {
@@ -167,10 +181,17 @@ public class Menu extends JFrame {
 	}
 
 	public void Logowanie() {
+		if(czyZalogowany){
 		logView.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		logView.clearLoggingData();
 		logView.setVisible(true);
 		this.dispose();
+		}
+		else
+		{
+			 Logowanie log = new Logowanie();
+		     LogController cLog = new LogController(log);
+		}
 	}
 
 	private void Help() {

@@ -40,7 +40,7 @@ public class Info extends JFrame {
 	public Info() {
 		setTitle("O programie");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 424, 214);
+		setBounds(100, 100, 451, 226);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -57,15 +57,15 @@ public class Info extends JFrame {
 		lblAsystentBiuraTurystycznego.setBounds(202, 11, 191, 14);
 		contentPane.add(lblAsystentBiuraTurystycznego);
 		
-		JLabel lblStworzonePrzez = new JLabel("Stworzone przez: BeerTeam");
-		lblStworzonePrzez.setBounds(202, 38, 178, 14);
+		JLabel lblStworzonePrzez = new JLabel("Stworzone przez:ZPITeam");
+		lblStworzonePrzez.setBounds(202, 38, 196, 14);
 		contentPane.add(lblStworzonePrzez);
 		
 		JLabel lblWersja = new JLabel("Wersja 1.0");
 		lblWersja.setBounds(202, 63, 136, 14);
 		contentPane.add(lblWersja);
 		
-		JLabel lblKontaktAndrzejbuziaczekpl = new JLabel("Kontakt: andrzej@buziaczek.pl");
+		JLabel lblKontaktAndrzejbuziaczekpl = new JLabel("Kontakt: zpi_projekt@gmail.pl");
 		lblKontaktAndrzejbuziaczekpl.setBounds(202, 88, 196, 14);
 		contentPane.add(lblKontaktAndrzejbuziaczekpl);
 	}
