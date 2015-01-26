@@ -29,10 +29,10 @@ public class Constants {
   	public static String DB_PERSON_COUNT = "ILOSCOSOBWPOKOJU";
 
 	
-	public final static String columnNamesBilans[] = { "Numer oferty", "Termin", "Miasto", "Koszt w³asny", "Cena", "Zarezerwowano", "Zysk" };
-	public final static String columnNamesOffers[] = { "Numer oferty", "Tytu³", "Opis", "Kraj", "Miasto", "Wolne miejsca", "Cena za miejsce", "Ocena" };
+	public final static String columnNamesBilans[] = { "Numer oferty", "Termin", "Miasto", "Koszt w\u0142asny", "Cena", "Zarezerwowano", "Zysk" };
+	public final static String columnNamesOffers[] = { "Numer oferty", "Tytu\u0142", "Opis", "Kraj", "Miasto", "Wolne miejsca", "Cena za miejsce", "Ocena" };
 
-	public final static String kolumnyRezerwacje[] = { "Numer rezerwacji", "Dane oferty", "Imiê i nazwisko", "Adres", "E-mail", "Telefon", "Status" };
+	public final static String kolumnyRezerwacje[] = { "Numer rezerwacji", "Dane oferty", "Imi\u0119 i nazwisko", "Adres", "E-mail", "Telefon", "Status" };
 
 	
 }
